@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    
+    <title>form-data、x-www-form-urlencoded、raw、binary的区别 | 追光者的部落 | 种一棵树最好的时间是十年之前,其次是现在</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="HTTP">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.0.0">
+    
+        <link rel="stylesheet" href="/css/third-party/gitment.css?v=1.0.0">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
+            v: JSON.parse('{"enable":false,"appid":null,"appkey":null,"notify":false,"verify":false,"placeholder":"suggest","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":true,"lazy":true,"owner":"longmartin","repo":"gitments","oauth":{"client_id":"f39a2a4a21ec450c4efe","client_secret":"010e883ee20561f202de087fc6e488d0734d94fb"},"perPage":10}'),
+            d: JSON.parse('{"app_id":null}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Martin Long</h5>
+          <a href="mailto:1156341485@qq.com" title="1156341485@qq.com" class="mail">
+            
+              <span>1</span>
+            
+              <span>1</span>
+            
+              <span>5</span>
+            
+              <span>6</span>
+            
+              <span>3</span>
+            
+              <span>4</span>
+            
+              <span>1</span>
+            
+              <span>4</span>
+            
+              <span>8</span>
+            
+              <span>5</span>
+            
+              <span>@</span>
+            
+              <span>q</span>
+            
+              <span>q</span>
+            
+              <span>.</span>
+            
+              <span>c</span>
+            
+              <span>o</span>
+            
+              <span>m</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="https://github.com/longmartin" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                HOME
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文档
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="https://github.com/longmartin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="https://www.jianshu.com/u/696184ca9e21" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                简书
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>form-data、x-www-form-urlencoded、raw、binary的区别</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">form-data、x-www-form-urlencoded、raw、binary的区别</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-03-27T22:07:52.000Z" itemprop="datePublished" class="page-time">
+  2018-03-27
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/frontend/">大前端</a></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-arch1"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">form-data、x-www-form-urlencoded、raw、binary的区别</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-03-27 22:07:52" datetime="2018-03-27T22:07:52.000Z"  itemprop="datePublished">2018-03-27</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/frontend/">大前端</a></li></ul>
+
+
+
+            
+
+            
+
+
+<span class="post-comments-counter" id="/frontend/arch1.html">
+    <span class="post-meta-item-icon">
+        <i class="icon icon-comment-o"></i>
+    </span>
+    
+    <a href="/frontend/arch1.html#gitment-display-button" onclick="ShowGitment()">
+        <span class="post-comments-count gitment-comments-count" itemprop="commentsCount"></span>
+    </a>
+</span>
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <h3 id="form-data"><a href="#form-data" class="headerlink" title="form-data:"></a>form-data:</h3><p>就是http请求中的multipart/form-data,它会将表单的数据处理为一条消息，以标签为单元，用分隔符分开。既可以上传键值对，也可以上传文件。当上传的字段是文件时，会有Content-Type来表名文件类型;content-disposition，用来说明字段的一些信息；</p>
+<p>由于有boundary隔离，所以multipart/form-data既可以上传文件，也可以上传键值对，它采用了键值对的方式，所以可以上传多个文件。</p>
+<figure class="image-box">
+                <img src="/frontend/./arch1/1522160210.png" alt="request" title="" class="">
+                <p>request</p>
+            </figure>
+<figure class="image-box">
+                <img src="/frontend/./arch1/1522160289.png" alt="request" title="" class="">
+                <p>request</p>
+            </figure>
+<h3 id="x-www-form-urlencoded"><a href="#x-www-form-urlencoded" class="headerlink" title="x-www-form-urlencoded:"></a>x-www-form-urlencoded:</h3><p>就是application/x-www-from-urlencoded,会将表单内的数据转换为键值对，比如,name=admin&amp;password = 123123</p>
+<figure class="image-box">
+                <img src="/frontend/./arch1/1522160820.png" alt="request" title="" class="">
+                <p>request</p>
+            </figure>
+<figure class="image-box">
+                <img src="/frontend/./arch1/1522160905.png" alt="request" title="" class="">
+                <p>request</p>
+            </figure>
+<h3 id="json"><a href="#json" class="headerlink" title="json:"></a>json:</h3><p>application/json的发送和接收序列化后的 JSON 字符串</p>
+<p><img src="/frontend/./arch1/1522161108.png" alt="request"></p>
+<p>服务端：</p>
+<ol>
+<li><p>php用file_get_contents拿Post数据。$_POST[‘test’]取不到数据。</p>
+</li>
+<li><p>然后使用json_decode解码。 原始file_get_contents是字符串？</p>
+</li>
+</ol>
+<h3 id="octet-stream"><a href="#octet-stream" class="headerlink" title="octet-stream:"></a>octet-stream:</h3><p>从字面意思得知，只可以上传二进制数据，通常用来上传文件，由于没有键值，所以，一次只能上传一个文件。</p>
+<figure class="image-box">
+                <img src="/frontend/./arch1/1522161036.png" alt="request" title="" class="">
+                <p>request</p>
+            </figure>
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-06-16T01:06:53.648Z" itemprop="dateUpdated">2018-06-16 01:06:53</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/frontend/arch1.html" target="_blank" rel="external">http://longmartin.github.io/frontend/arch1.html</a>
+        
+    </div>
+    <footer>
+        <a href="http://longmartin.github.io">
+            <img src="/img/avatar.jpg" alt="Martin Long">
+            Martin Long
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">HTTP</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://longmartin.github.io/frontend/arch1.html&title=《form-data、x-www-form-urlencoded、raw、binary的区别》 — 追光者的部落&source=有些鸟儿天生是没办法被关在笼子里的,因为他的每一片羽毛都闪耀着自由的光辉" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+
+
+      
+    <div onclick="ShowGitment()" id="gitment-display-button" style="display: block;">
+        <span>显示 Gitment 评论</span>
+    </div>
+    <div id="gitment" class="hide"></div>
+
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="prev">
+      <a href="/uncategorized/20180616-1.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Linux上安装git</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/resource/arch2.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">免费的编程中文书籍索引</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#form-data"><span class="post-toc-number">1.</span> <span class="post-toc-text">form-data:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#x-www-form-urlencoded"><span class="post-toc-number">2.</span> <span class="post-toc-text">x-www-form-urlencoded:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#json"><span class="post-toc-number">3.</span> <span class="post-toc-text">json:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#octet-stream"><span class="post-toc-number">4.</span> <span class="post-toc-text">octet-stream:</span></a></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+            请作者喝杯咖啡
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+</div>
+
+        <footer class="footer">
+    
+    <div class="bottom">
+        <p>
+            <span>
+                Martin Long &copy; 2017 - 2018
+            </span>
+        		
+           	
+            
+            
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">book</a>
+            </span>
+            
+            
+            
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://longmartin.github.io/frontend/arch1.html&title=《form-data、x-www-form-urlencoded、raw、binary的区别》 — 追光者的部落&source=有些鸟儿天生是没办法被关在笼子里的,因为他的每一片羽毛都闪耀着自由的光辉" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACL0lEQVR42u3aQU4DMQwFUO5/6SIhFkjQ4f+YIk3yskJVSebNwrVjv73F6/Gx1r759ZPHt/X9m/lZ9cLAwLgt43G5kuOTPa/B+blP98TAwDiAkR9zfcB16Lx+Bc/2iX4AMDAwMErSWuZ2fS4GBgbGnJGH2jxMY2BgYLRFbPJfbaqXv5Q/q8UxMDBuyGiv+//z7xf2NzAwMG7CeJRr/l9/+zyfe2JgYGzNSErKfPCiTfImoT/KcDEwMDZl5GVkOzq2Nn5RvFAMDIxNGe0wxNr1fXLdll/k/fA3BgbGAYzJuEP+EG3LId8NAwNjb0beDHh1s3Mtxax7GhgYGDdk5MFuLWlLSta1puYPvxsYGBhbM9YSxMkQ2NopT/fHwMA4hpFf5U+GKvJXVqSYGBgYWzMm1/GvGAtLEsRf9sTAwNiO0aZuSYGal8H5Q49qcQwMjJsz8nJ0beIsT/hGwxYYGBgHM/KiNA/HbduyGLPAwMDYlDFJ1NoLsvY6r3hNGBgYWzPydHDyefug+eAFBgbGCYwocxw0Boq+RNnyxMDAOJMxaU+2CV87FlangxgYGBsx2sGs/OC8IZqH4PruEAMDYwvGZMBrbfwrTxyTnTEwME5g5KsdklhLPecBHQMDY1fG/wfZtl0aBVkMDIwDGG0TMS9H2yDblrIYGBgYkxGK+V1gEsoxMDAwJldgOXUt0cTAwDiNkRexk6GKtqAtSlwMDIytGZPGQPLQOW8t6GNgYGzNeAdzODMIX57DNAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.0.0"></script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.0.0"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.0.0"></script>
+
+<!-- third-party -->
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.0.0"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+    
+    
+        <script type="text/javascript" src="/js/plugins/gitmint.browser.js?v=1.0.0"></script>
+<script type="text/javascript" src="/js/plugins/gitment.js?v=1.0.0"></script>
+    
+
+
+
+
+
+
+
+    <script>
+    (function() {
+        var OriginTitile = document.title, titleTime;
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = 'leaving！';
+                clearTimeout(titleTime);
+            } else {
+                document.title = 'welcome!';
+                titleTime = setTimeout(function() {
+                    document.title = OriginTitile;
+                },2000);
+            }
+        });
+    })();
+</script>
+
+
+
+
+    
+</body>
+</html>
