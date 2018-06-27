@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    
+    <title>docker基本命令详解 | 追光者的部落 | 种一棵树最好的时间是十年之前,其次是现在</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Docker">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.0.0">
+    
+        <link rel="stylesheet" href="/css/third-party/gitment.css?v=1.0.0">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
+            v: JSON.parse('{"enable":false,"appid":null,"appkey":null,"notify":false,"verify":false,"placeholder":"suggest","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":true,"lazy":true,"owner":"longmartin","repo":"gitments","oauth":{"client_id":"f39a2a4a21ec450c4efe","client_secret":"010e883ee20561f202de087fc6e488d0734d94fb"},"perPage":10}'),
+            d: JSON.parse('{"app_id":null}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Martin Long</h5>
+          <a href="mailto:1156341485@qq.com" title="1156341485@qq.com" class="mail">
+            
+              <span>1</span>
+            
+              <span>1</span>
+            
+              <span>5</span>
+            
+              <span>6</span>
+            
+              <span>3</span>
+            
+              <span>4</span>
+            
+              <span>1</span>
+            
+              <span>4</span>
+            
+              <span>8</span>
+            
+              <span>5</span>
+            
+              <span>@</span>
+            
+              <span>q</span>
+            
+              <span>q</span>
+            
+              <span>.</span>
+            
+              <span>c</span>
+            
+              <span>o</span>
+            
+              <span>m</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="https://github.com/longmartin" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                HOME
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文档
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="https://github.com/longmartin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="https://www.jianshu.com/u/696184ca9e21" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                简书
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>docker基本命令详解</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">docker基本命令详解</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-06-16T09:29:41.000Z" itemprop="datePublished" class="page-time">
+  2018-06-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/server/">后台</a></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-20180616-4"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">docker基本命令详解</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-06-16 09:29:41" datetime="2018-06-16T09:29:41.000Z"  itemprop="datePublished">2018-06-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/server/">后台</a></li></ul>
+
+
+
+            
+
+            
+
+
+<span class="post-comments-counter" id="/server/20180616-4.html">
+    <span class="post-meta-item-icon">
+        <i class="icon icon-comment-o"></i>
+    </span>
+    
+    <a href="/server/20180616-4.html#gitment-display-button" onclick="ShowGitment()">
+        <span class="post-comments-count gitment-comments-count" itemprop="commentsCount"></span>
+    </a>
+</span>
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <ul>
+<li><p>attach:    将标准输入（stdin）与标准输出（stdout）连接到正在运行的容器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker attach [OPTIONS] CONTAINER</span><br><span class="line"># 创建容器</span><br><span class="line">docker create -it --name centos-container centos /bin/bash</span><br><span class="line"># 若想使用刚刚创建的容器，则必须使用docker start 命令启动容器</span><br><span class="line">docker start centos-container</span><br><span class="line"># 进入容器内部</span><br><span class="line">docker attach centos-container</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>build:     使用Dockerfile文件创建镜像 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build &lt;选项&gt;&lt;Dockerfile路径&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>commit:    从容器的修改项创建显得镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit &lt;选项&gt;&lt;容器名称，id&gt;/&lt;镜像名称&gt;:&lt;标签&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>cp:        用于将容器的目录或文件复制的到主机。若将cp命令中的路径设置为目录，则将该目录下的所有内容复制到主机</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH|-</span><br><span class="line">docker cp [OPTIONS] SRC_PATH|- CONTAINER:DEST_PATH</span><br><span class="line"># 将容器内的整个/etc 目录复制到主机当前文件夹下</span><br><span class="line">docker cp centos-container:/etc /home/long</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>create:    使用指定的镜像创建容器。与run命令不同，使用create命令只能创建容器而并不启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">docker create [OPTIONS] IMAGE [COMMAND] [ARG...]</span><br><span class="line"></span><br><span class="line"># 创建容器</span><br><span class="line">docker create -it --name centos-container centos /bin/bash</span><br><span class="line"># 若想使用刚刚创建的容器，则必须使用docker start 命令启动容器</span><br><span class="line">docker start centos-container</span><br><span class="line"># 进入容器内部</span><br><span class="line">docker attach centos-container</span><br><span class="line"># 退出容器</span><br><span class="line">exit</span><br><span class="line"># 停止容器</span><br><span class="line">docker stop centos-container</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>diff:      检查容器文件系统的修改(查看修改内容)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker diff &lt;容器名称，id&gt;</span><br><span class="line"># 示例</span><br><span class="line">[root@localhost /home/long]# docker diff centos-container</span><br><span class="line">C /run</span><br><span class="line">A /run/secrets</span><br><span class="line">C /root</span><br><span class="line">A /root/.bash_history</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>events:    实时输出Docker服务器中发生的事件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker events</span><br><span class="line">另一终端，运行容器</span><br><span class="line">docker start centos-container</span><br><span class="line">此端输出</span><br><span class="line">2018-04-26T19:16:35.017678507-07:00 network connect b2376bcc00f587966645b362992289aa78ea58080ea6713a9a418b5f82e64c48 (container=24d1711909362e7620f9c76f266a671f1a7336452e88ff32c4942a4768801d79, name=bridge, type=bridge)</span><br><span class="line">2018-04-26T19:16:35.622752724-07:00 container start 24d1711909362e7620f9c76f266a671f1a7336452e88ff32c4942a4768801d79 (build-date=20170911, image=centos, license=GPLv2, name=centos-container, vendor=CentOS)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>exec:      用于从外部运行容器内部的命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker exec [OPTIONS] CONTAINER COMMAND [ARG...]</span><br><span class="line"># 执行</span><br><span class="line">docker exec -it hello /bin/bash</span><br><span class="line">ps -ef</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>export:    将容器的文件系统导出为tar文件包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker export &lt;容器名称，id&gt;</span><br><span class="line"># 示例</span><br><span class="line">docker export centos-container &gt; centos-container.tar</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>history:   显示镜像的历史。此处的历史依据Dockerfile文件中的设置创建。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker history &lt;选项&gt;&lt;镜像名称，id&gt;</span><br><span class="line"># 示例</span><br><span class="line">[root@localhost /home/long]# docker images</span><br><span class="line">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">docker.io/tomcat    latest              33e02377a00f        2 weeks ago         553.8 MB</span><br><span class="line">docker.io/nginx     latest              b175e7467d66        2 weeks ago         108.9 MB</span><br><span class="line">docker.io/centos    latest              196e0ce0c9fb        7 months ago        196.6 MB</span><br><span class="line">[root@localhost /home/long]# docker history tomcat</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>images:   查看所有镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost /home/long]# docker images</span><br><span class="line">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">docker.io/tomcat    latest              33e02377a00f        2 weeks ago         553.8 MB</span><br><span class="line">docker.io/nginx     latest              b175e7467d66        2 weeks ago         108.9 MB</span><br><span class="line">docker.io/centos    latest              196e0ce0c9fb        7 months ago        196.6 MB</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>import:    从压缩为tar文件（.tar .tar.gz .tgz .bzip .tar.xz .txz）的文件系统创建镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker import &lt;tar文件的URL或者 - &gt;&lt;注册名称&gt;/&lt;镜像名称&gt;:&lt;标签&gt;</span><br><span class="line">docker import centos-container.tar centos-container-2</span><br><span class="line">cat centos-container | docker import - centos-container-2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>info:      显示当前系统信息、docker容器、镜像个数、设置等信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker info</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>inspect:   获得更详细的容器、镜像或者任务信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker inspect &lt;选项&gt;&lt;容器或镜像名称，id&gt;</span><br><span class="line"># 示例</span><br><span class="line">docker inspect centos-container</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>kill:      向容器发送KILL信号，从而关闭容器（推荐使用更优雅温和的 docker stop 命令)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker kill centos-container</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>load:      从tar文件或标准输入中创建镜像 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker load &lt;选项&gt;</span><br><span class="line"># 示例</span><br><span class="line">docker load -i centos-container.tar</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>login:    登录Docker 的注册服务器,若不设置注册服务器的地址，则默认登录<a href="https://link.segmentfault.com/?r=https%3A%2F%2Fhub.docker.com%2F" target="_blank" rel="noopener">dockerhub</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker login &lt;选项&gt;&lt;Docker 注册服务器的URL&gt;</span><br><span class="line">-e、--email=&quot;&quot; 设置登录时使用的电子邮件</span><br><span class="line">-p、--password=&quot;&quot; 设置登录密码</span><br><span class="line">-u、--username=&quot;&quot; 设置登录时使用的账号</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>logout:   从Docker注册服务器中登出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logout &lt;选项&gt;&lt;Docker 注册服务器的URL&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>logs:     获取容器日志</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker logs &lt;容器名称，id&gt;</span><br><span class="line"># 示例</span><br><span class="line">docker logs centos-container</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>network:   管理docker的网络系统</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker network COMMAND</span><br><span class="line"># 示例</span><br><span class="line">docker network ls</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>node:      管理docker的swarm集群节点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker node ls</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>pause:    暂停容器中所有的进程（可以是多个容器）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker pause &lt;容器名称，id&gt;</span><br><span class="line"># 示例</span><br><span class="line">docker pause centos-container</span><br><span class="line"># 恢复</span><br><span class="line">docker unpause centos-container</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>port:     查看容器的某个端口是否处于开放状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker port &lt;容器名称，id&gt;&lt;端口&gt;</span><br><span class="line"># 示例</span><br><span class="line">docker port centos-container 8090</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ps:        查看容器列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker ps &lt;选项&gt;</span><br><span class="line">-a、--all=false 列出所有容器。不带 -a 只输出在运行的容器</span><br><span class="line">--before=&quot;&quot; 列出特定容器创建前的容器，包含停止的容器。</span><br><span class="line">-f、--filter=[] 设置输出过滤。如 &quot;exited=0&quot;</span><br><span class="line">-l、--latest=false 列出最后创建的容器，包含停止的容器</span><br><span class="line">-q、--quiet=false 只输出容器的id</span><br><span class="line"># 示例</span><br><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>pull:      从一个远程仓库拉取镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker pull &lt;选项&gt; &lt;镜像名&gt;:&lt;标签&gt;</span><br><span class="line"># 示例</span><br><span class="line">docker pull nginx:latest</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>push:      将镜像推送到Docker注册服务器或者指定仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker push &lt;注册名&gt;/&lt;镜像名&gt;:&lt;标签&gt;</span><br><span class="line">docker pull 192.168.1.150:10000/centos-container:latest</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>rename:    修改某一个容器名字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker rename  &lt;容器名&gt; &lt;新容器名&gt;</span><br><span class="line"># 示例</span><br><span class="line"> docker rename centos-container centos</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>restart:   重启容器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker restart &lt;容器名称，id&gt;</span><br><span class="line">docker restart centos-container</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>rm:       删除容器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker rm &lt;容器名称，id&gt;</span><br><span class="line"># 示例</span><br><span class="line">docker ps -a</span><br><span class="line">docker rm hello</span><br><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>rmi:       删除镜像, 若不指定标签，则删除latest标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker rmi &lt;注册名称&gt;/&lt;镜像名称，id&gt;:&lt;标签&gt;</span><br><span class="line"># 示例</span><br><span class="line">docker images</span><br><span class="line">docker nginx</span><br><span class="line">docker images</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>run:      使用命令行指定镜像创建容器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run &lt;选项&gt;&lt;镜像名称，id&gt;&lt;命令&gt;&lt;参数&gt;</span><br><span class="line"># 示例</span><br><span class="line">docker ps -a</span><br><span class="line">docker run --name hello -i -t centos /bin/bash</span><br><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>save:      将镜像保存为tar包文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">docker save &lt;选项&gt;&lt;镜像名称&gt;:&lt;标签&gt;</span><br><span class="line"># 示例</span><br><span class="line">[root@localhost /home/long]# docker images</span><br><span class="line">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">docker.io/tomcat    latest              33e02377a00f        2 weeks ago         553.8 MB</span><br><span class="line">docker.io/nginx     latest              b175e7467d66        2 weeks ago         108.9 MB</span><br><span class="line">docker.io/centos    latest              196e0ce0c9fb        7 months ago        196.6 MB</span><br><span class="line">[root@localhost /home/long]# docker save nginx -o nginx.tar</span><br><span class="line">[root@localhost /home/long]# ll</span><br><span class="line">total 110028</span><br><span class="line">drwxr-xr-x. 2 long long         6 Sep 28  2017 Desktop</span><br><span class="line">drwxr-xr-x. 2 long long         6 Sep 28  2017 Documents</span><br><span class="line">drwxr-xr-x. 2 long long         6 Sep 28  2017 Downloads</span><br><span class="line">drwxr-xr-x. 2 long long         6 Sep 28  2017 Music</span><br><span class="line">-rw-------. 1 root root 112667648 Apr 26 22:46 nginx.tar #生成了新的文件</span><br><span class="line">drwxr-xr-x. 2 long long         6 Sep 28  2017 Pictures</span><br><span class="line">drwxr-xr-x. 2 long long         6 Sep 28  2017 Public</span><br><span class="line">drwxr-xr-x. 2 long long        61 Oct 17  2017 samba</span><br><span class="line">drwxr-xr-x. 2 long long         6 Sep 28  2017 Templates</span><br><span class="line">drwxr-xr-x. 2 long long         6 Sep 28  2017 Videos</span><br><span class="line">[root@localhost /home/long]#</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>search:    根据名字在docker hub搜索你要的镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker search &lt;选项&gt;&lt;搜索词&gt;</span><br><span class="line">--automated=false 只显示由docker hub 的automated build 创建的镜像</span><br><span class="line">--no-trunc=false 显示所有因因为内容过长而省略的部分</span><br><span class="line">-s、--stars=0 显示滴啊有特定星级以上的镜像</span><br><span class="line"># 示例</span><br><span class="line">docker search nginx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>service:   管理docker服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker service [COMMAND]</span><br><span class="line">docker service ls #主要用于swarm集群</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>start:     启动一个或多个容器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker start &lt;选项&gt;&lt;容器名称，id&gt;</span><br><span class="line"># 示例</span><br><span class="line">docker start centos-container</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>stats:     显示一个容器的使用资源情况，包括cpu，内存，硬盘等</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker stats &lt;选项&gt;&lt;容器名称，id&gt;</span><br><span class="line"># 示例</span><br><span class="line">docker stats centos-container</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>stop:      停止容器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker stop&lt;选项&gt;&lt;容器或镜像名称，id&gt;</span><br><span class="line"># 示例</span><br><span class="line">docker stop centos-container</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>swarm:     管理Docker Swarm集群</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker swarm [COMMAND]</span><br><span class="line"># 初始化一个swarm集群</span><br><span class="line">docker swarm init</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>tag:       标记本地镜像，将其归入某一仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker tag &lt;选项&gt;&lt;镜像名称&gt;:&lt;标签&gt;&lt;注册地址，用户名&gt;/&lt;镜像名称&gt;:&lt;标签&gt;</span><br><span class="line">#示例</span><br><span class="line">docker tag nginx:latest youset:6666/nginx:0.1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>top:      显示容器中正在运行的进程信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker top &lt;容器名称，id&gt;&lt;ps选项&gt;</span><br><span class="line">#示例</span><br><span class="line">docker top centos-container</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>unpause:   停止容器内的所有进程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker unpause &lt;容器名称，id&gt;</span><br><span class="line">#示例</span><br><span class="line">docker unpause centos-container</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>update:    动态地更新容器配置。可以使用这个命令限制容器在docker主机上使用太多的资源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker update &lt;容器名称，id&gt;</span><br><span class="line">#示例</span><br><span class="line">doucker update centos-container</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>version:   展示docker版本信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost /home/long]# docker version</span><br><span class="line">Client:</span><br><span class="line"> Version:         1.12.6</span><br><span class="line"> API version:     1.24</span><br><span class="line"> Package version: docker-1.12.6-55.gitc4618fb.el7.centos.x86_64</span><br><span class="line"> Go version:      go1.8.3</span><br><span class="line"> Git commit:      c4618fb/1.12.6</span><br><span class="line"> Built:           Thu Sep 21 22:33:52 2017</span><br><span class="line"> OS/Arch:         linux/amd64</span><br><span class="line"></span><br><span class="line">Server:</span><br><span class="line"> Version:         1.12.6</span><br><span class="line"> API version:     1.24</span><br><span class="line"> Package version: docker-1.12.6-55.gitc4618fb.el7.centos.x86_64</span><br><span class="line"> Go version:      go1.8.3</span><br><span class="line"> Git commit:      c4618fb/1.12.6</span><br><span class="line"> Built:           Thu Sep 21 22:33:52 2017</span><br><span class="line"> OS/Arch:         linux/amd64</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>volume:    管理docker数据卷</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker volume [COMMAND]</span><br><span class="line"># 示例</span><br><span class="line">docker volume ls</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>wait:      等待容器终止，然后输出 Exit Code</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker wait &lt;容器名称，id&gt;</span><br><span class="line"># 示例</span><br><span class="line">docker wait centos-container</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>以上就是docker的主要命令，包括docker swarm集群的一些命令，除此之外还有一些其他的命令,如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">--api-enable-cors=false 使用API时，启用CORS（cross-origin resource sharing）</span><br><span class="line"></span><br><span class="line">-b 、--bridge=&quot;&quot; 使用事先创建的网桥接口。若设置为none，则不在容器内使用网络</span><br><span class="line"></span><br><span class="line">--bip=&quot;&quot; 使用CIDR标记法设置docker 的IP带宽。该选项不能与-b选项同时使用</span><br><span class="line"></span><br><span class="line">如：`-bip=&quot;192.168.0.0/24&quot;`</span><br><span class="line">-D 、--debug 启用调试模式</span><br><span class="line"></span><br><span class="line">-d 、--deamon=false 以守护进程模式运行</span><br><span class="line"></span><br><span class="line">--dns 设置docker要使用的DNS服务器</span><br><span class="line"></span><br><span class="line">--dns-search=[] 设置docker要使用的DNS搜索域。若设置为：example.com，则向服务器查询hello时，将首先查找hello.example.com</span><br><span class="line"></span><br><span class="line">-e、--exec-drive=&quot;native&quot; 设置docker运行驱动，可设置为Native与lxc</span><br><span class="line"></span><br><span class="line">--fixed-cidr=&quot;&quot; 固定分配IPv4地址的带宽。该IP地址必须在-b选项设置的网桥网络或--bip设置的IP网段内</span><br><span class="line"></span><br><span class="line">-G、--group=&quot;docker&quot; 以守护进程模式运行时，使用-H选项创建Unix套接字后，设置该Unix套接字所在的组。使用&quot;&quot;空字符串表示不设置分组</span><br><span class="line"></span><br><span class="line">-g、 --graph=&quot;/var/lib/docker&quot; 设置docker使用目录的顶层路径</span><br><span class="line"></span><br><span class="line">-H、--host[] 以守护进程模式运行时，设置套接字路径。</span><br><span class="line"></span><br><span class="line">--icc=true 开启容器间通信</span><br><span class="line"></span><br><span class="line">--insecure-registry=[] 使用私有证书搭建docker注册服务器时，设置docker注册服务器域名</span><br><span class="line"></span><br><span class="line">--ip=0.0.0.0 使用docker run 命令时-p选项将端口暴露在外时，设置要绑定的默认IP地址</span><br><span class="line"></span><br><span class="line">--ip-forward=true 开启net.ipv4.ip_forward</span><br><span class="line"></span><br><span class="line">--ip-masq=true 为网桥上的IP地址开启IP伪装（masquerading）</span><br><span class="line"></span><br><span class="line">--iptables=true 开启iptables规则</span><br><span class="line"></span><br><span class="line">--mtu=0 设置容器的网络最大传输单元（MTU, Maxmum transmission unit）若不设置，则使用路由器的默认MTU或者设置为1500</span><br><span class="line"></span><br><span class="line">-p、--pidfile=&quot;/var/run/docker.pid&quot; 设置PID文件路径</span><br><span class="line"></span><br><span class="line">-registry-mirror=[] 设置docker registry 的镜像地址</span><br><span class="line"></span><br><span class="line">-s、--storage-driver=[] 设置储存驱动，默认为auto，也可以设置为drivcemapper</span><br><span class="line"></span><br><span class="line">--selinux-enabled=false开启SELinux SELinux尚不支持BTRFS储存驱动</span><br><span class="line"></span><br><span class="line">--storage-opt 设置存储驱动选项</span><br><span class="line"></span><br><span class="line">--tls=false 使用TLS</span><br><span class="line"></span><br><span class="line">--tlscacert=&quot;/home/exapmleuser/.docker/ca.pem&quot; 设置要在远程证书中使用的CA证书文件的路径</span><br><span class="line"></span><br><span class="line">--tlscert=&quot;/home/exapmleuser/.docker/cert.pem&quot; 设置证书文件路径</span><br><span class="line"></span><br><span class="line">--tlskey=&quot;/home/exapmleuser/.docker/key.pem&quot; 设置密匙文件路径</span><br><span class="line"></span><br><span class="line">tlsverify=&quot;false&quot; 使用TLS远程证书，守护进程与客户端全部使用证书验证</span><br><span class="line"></span><br><span class="line">-v、--version=false 打印版本信息</span><br></pre></td></tr></table></figure></p>
+<h6 id="docker一个很有意思的东西，如果你还在纠结于每次装完软件后，要更新软件无法删除所有的文件时，你不妨考虑一下使用docker-他让你可以快速部署，快速清除，快捷方便。"><a href="#docker一个很有意思的东西，如果你还在纠结于每次装完软件后，要更新软件无法删除所有的文件时，你不妨考虑一下使用docker-他让你可以快速部署，快速清除，快捷方便。" class="headerlink" title="docker一个很有意思的东西，如果你还在纠结于每次装完软件后，要更新软件无法删除所有的文件时，你不妨考虑一下使用docker,他让你可以快速部署，快速清除，快捷方便。"></a>docker一个很有意思的东西，如果你还在纠结于每次装完软件后，要更新软件无法删除所有的文件时，你不妨考虑一下使用docker,他让你可以快速部署，快速清除，快捷方便。</h6>
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-06-16T23:54:24.616Z" itemprop="dateUpdated">2018-06-16 23:54:24</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/server/20180616-4.html" target="_blank" rel="external">http://blog.inbelieve.top/server/20180616-4.html</a>
+        
+    </div>
+    <footer>
+        <a href="http://blog.inbelieve.top">
+            <img src="/img/avatar.jpg" alt="Martin Long">
+            Martin Long
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">Docker</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.inbelieve.top/server/20180616-4.html&title=《docker基本命令详解》 — 追光者的部落&source=有些鸟儿天生是没办法被关在笼子里的,因为他的每一片羽毛都闪耀着自由的光辉" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+
+
+      
+    <div onclick="ShowGitment()" id="gitment-display-button" style="display: block;">
+        <span>显示 Gitment 评论</span>
+    </div>
+    <div id="gitment" class="hide"></div>
+
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="prev">
+      <a href="/server/20180616-5.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">启动docker服务找不到group docker报错处理</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/server/20180616-3.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">设置rubygems国内镜像地址</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+            请作者喝杯咖啡
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+</div>
+
+        <footer class="footer">
+    
+    <div class="bottom">
+        <p>
+            <span>
+                Martin Long &copy; 2017 - 2018
+            </span>
+        		
+           	
+            
+            
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">book</a>
+            </span>
+            
+            
+            
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.inbelieve.top/server/20180616-4.html&title=《docker基本命令详解》 — 追光者的部落&source=有些鸟儿天生是没办法被关在笼子里的,因为他的每一片羽毛都闪耀着自由的光辉" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJ0lEQVR42u3aQW7DMAwEwPz/0+mlhwKF3V1JKWBpdApcJ9b4wJIiX694vX+sqyu/709+Lf/NBQsDA+OxjPftun9w8sv3W2yfe7kHDAyMAxjJJvJv3W86CeX53jAwMDDa0Nkmgu3rw8DAwGgZSWLXhmMMDAyMmSK2DYtjKeDHa3EMDIwHMsYOzv7n80f6GxgYGI9ivMvVNjXzK2P7+f4uBgbG1oyZxK4dj8jTu8H9YGBgHMlow+7YsFcboKPsFQMDYztGfnCfPD45mFs1hHG5QwwMjI0YbTCdGYyYCbhT4RUDA+PhjLZN2KaA91faMbI/YBgYGJsy8q0nj1n8dvNDPQwMjK0Z+U2rxrnmA/fli8PAwDiSsar4TF7Q/GAHBgbGyYw2gcsPzvK/Ri8XAwNjU0bbdExSuvnStL6CgYFxAOM+dK5qOrbNgHrYAgMDY2tG/oBXvMbaAPn82uX/DQwMjE0ZY6Gz3VweQOthNQwMjK0ZecuwPQ5LBjVmyt3o1BADA2NrRpv85eMa8yVufXaIgYGxEaNN5hLMTMKXtyswMDBOY+RFZlRYTgTotiTGwMDYlfEu10yZ2ob1otzFwMDYmjHTkmzDcXu4lr8yDAyMExhtkG0nHMZ+ud0DBgbGCYy2Gbmq/dkWtJe7wsDAwCg/t8XqgnwWAwMDI75nfqQsuT/qxGJgYGzHyMcm2vZkPi42UzZjYGDszRgrHdvGZ9tmqItYDAyMPRlftT36CI5nK/sAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.0.0"></script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.0.0"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.0.0"></script>
+
+<!-- third-party -->
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.0.0"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+    
+    
+        <script type="text/javascript" src="/js/plugins/gitmint.browser.js?v=1.0.0"></script>
+<script type="text/javascript" src="/js/plugins/gitment.js?v=1.0.0"></script>
+    
+
+
+
+
+
+
+
+    <script>
+    (function() {
+        var OriginTitile = document.title, titleTime;
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = 'leaving！';
+                clearTimeout(titleTime);
+            } else {
+                document.title = 'welcome!';
+                titleTime = setTimeout(function() {
+                    document.title = OriginTitile;
+                },2000);
+            }
+        });
+    })();
+</script>
+
+
+
+
+    
+</body>
+</html>

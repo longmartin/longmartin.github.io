@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    
+    <title>浏览器User-Agent总结 | 追光者的部落 | 种一棵树最好的时间是十年之前,其次是现在</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="HTTP,HTML5">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.0.0">
+    
+        <link rel="stylesheet" href="/css/third-party/gitment.css?v=1.0.0">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
+            v: JSON.parse('{"enable":false,"appid":null,"appkey":null,"notify":false,"verify":false,"placeholder":"suggest","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":true,"lazy":true,"owner":"longmartin","repo":"gitments","oauth":{"client_id":"f39a2a4a21ec450c4efe","client_secret":"010e883ee20561f202de087fc6e488d0734d94fb"},"perPage":10}'),
+            d: JSON.parse('{"app_id":null}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Martin Long</h5>
+          <a href="mailto:1156341485@qq.com" title="1156341485@qq.com" class="mail">
+            
+              <span>1</span>
+            
+              <span>1</span>
+            
+              <span>5</span>
+            
+              <span>6</span>
+            
+              <span>3</span>
+            
+              <span>4</span>
+            
+              <span>1</span>
+            
+              <span>4</span>
+            
+              <span>8</span>
+            
+              <span>5</span>
+            
+              <span>@</span>
+            
+              <span>q</span>
+            
+              <span>q</span>
+            
+              <span>.</span>
+            
+              <span>c</span>
+            
+              <span>o</span>
+            
+              <span>m</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="https://github.com/longmartin" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                HOME
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文档
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="https://github.com/longmartin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="https://www.jianshu.com/u/696184ca9e21" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                简书
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>浏览器User-Agent总结</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">浏览器User-Agent总结</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-06-17T13:07:04.000Z" itemprop="datePublished" class="page-time">
+  2018-06-17
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/server/">后台</a></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-20180617-23"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">浏览器User-Agent总结</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-06-17 13:07:04" datetime="2018-06-17T13:07:04.000Z"  itemprop="datePublished">2018-06-17</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/server/">后台</a></li></ul>
+
+
+
+            
+
+            
+
+
+<span class="post-comments-counter" id="/server/20180617-23.html">
+    <span class="post-meta-item-icon">
+        <i class="icon icon-comment-o"></i>
+    </span>
+    
+    <a href="/server/20180617-23.html#gitment-display-button" onclick="ShowGitment()">
+        <span class="post-comments-count gitment-comments-count" itemprop="commentsCount"></span>
+    </a>
+</span>
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <p>UserAgent中文名为用户代理，是Http协议中header头的组成部分，UserAgent也简称UA。它是一个特殊字符串头，是一种向访问网站提供你所使用的浏览器类型及版本、操作系统及版本、浏览器内核、等信息的标识。通过这个标识，用户所访问的网站可以显示不同的排版从而为用户提供更好的体验或者进行信息统计；例如用手机访问谷歌和电脑访问是不一样的，这些是谷歌根据访问者的UA来判断的。UA可以进行伪装。</p>
+<blockquote>
+<p>浏览器的UA字串的标准格式：浏览器标识 (操作系统标识 加密等级标识 浏览器语言) 渲染引擎标识版本信息。</p>
+</blockquote>
+<h4 id="字串说明："><a href="#字串说明：" class="headerlink" title="字串说明："></a>字串说明：</h4><h5 id="1、浏览器标识"><a href="#1、浏览器标识" class="headerlink" title="1、浏览器标识"></a>1、浏览器标识</h5><p>出于兼容及推广等目的，很多浏览器的标识相同（如Mozilla/5.0），因此浏览器标识并不能说明浏览器的真实版本，真实版本信息在UA字串尾部可以找到。</p>
+<h5 id="2、操作系统标识"><a href="#2、操作系统标识" class="headerlink" title="2、操作系统标识"></a>2、操作系统标识</h5><table>
+<thead>
+<tr>
+<th style="text-align:center">平台</th>
+<th style="text-align:left">标识</th>
+<th style="text-align:left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">FreeBSD</td>
+<td style="text-align:left">X11</td>
+<td style="text-align:left">FreeBSD(version no.)i386</td>
+</tr>
+<tr>
+<td style="text-align:center">FreeBSD</td>
+<td style="text-align:left">X11</td>
+<td style="text-align:left">FreeBSD(version no.)AMD64</td>
+</tr>
+<tr>
+<td style="text-align:center">Linux</td>
+<td style="text-align:left">X11</td>
+<td style="text-align:left">Linux ppc</td>
+</tr>
+<tr>
+<td style="text-align:center">Linux</td>
+<td style="text-align:left">X11</td>
+<td style="text-align:left">Linux ppc64</td>
+</tr>
+<tr>
+<td style="text-align:center">Linux</td>
+<td style="text-align:left">X11</td>
+<td style="text-align:left">Linux i686</td>
+</tr>
+<tr>
+<td style="text-align:center">Linux</td>
+<td style="text-align:left">X11</td>
+<td style="text-align:left">Linux x86_64</td>
+</tr>
+<tr>
+<td style="text-align:center">Mac</td>
+<td style="text-align:left">Macintosh</td>
+<td style="text-align:left">PPC Mac OS X</td>
+</tr>
+<tr>
+<td style="text-align:center">Mac</td>
+<td style="text-align:left">Macintosh</td>
+<td style="text-align:left">Intel Mac OS X</td>
+</tr>
+<tr>
+<td style="text-align:center">Solaris</td>
+<td style="text-align:left">X11</td>
+<td style="text-align:left">SunOS i86pc</td>
+</tr>
+<tr>
+<td style="text-align:center">Solaris</td>
+<td style="text-align:left">X11</td>
+<td style="text-align:left">SunOS sun4u</td>
+</tr>
+<tr>
+<td style="text-align:center">Windows</td>
+<td style="text-align:left">Windows NT 10.0</td>
+<td style="text-align:left">windows 10</td>
+</tr>
+<tr>
+<td style="text-align:center">Windows</td>
+<td style="text-align:left">Windows NT 6.1</td>
+<td style="text-align:left">windows 7</td>
+</tr>
+<tr>
+<td style="text-align:center">Windows</td>
+<td style="text-align:left">Windows NT 6.0</td>
+<td style="text-align:left">windows Vista</td>
+</tr>
+<tr>
+<td style="text-align:center">Windows</td>
+<td style="text-align:left">Windows NT 5.2</td>
+<td style="text-align:left">windows 2003</td>
+</tr>
+<tr>
+<td style="text-align:center">Windows</td>
+<td style="text-align:left">Windows NT 5.1</td>
+<td style="text-align:left">windows xp</td>
+</tr>
+<tr>
+<td style="text-align:center">Windows</td>
+<td style="text-align:left">Windows NT 5.0</td>
+<td style="text-align:left">windows 2000</td>
+</tr>
+</tbody>
+</table>
+<h5 id="3、加密等级标识"><a href="#3、加密等级标识" class="headerlink" title="3、加密等级标识"></a>3、加密等级标识</h5><ul>
+<li>N:表示无安全加密</li>
+<li>I:表示弱安全加密</li>
+<li>U:表示强安全加密</li>
+</ul>
+<h5 id="4、浏览器语言"><a href="#4、浏览器语言" class="headerlink" title="4、浏览器语言"></a>4、浏览器语言</h5><p>在首选项&gt;常规&gt;语言中指定的语言</p>
+<h5 id="5、渲染引擎"><a href="#5、渲染引擎" class="headerlink" title="5、渲染引擎"></a>5、渲染引擎</h5><p>显示浏览器使用的主流渲染引擎有：Gecko、WebKit、KHTML、Presto、Trident、Tasman等，格式为：渲染引擎/版本信息</p>
+<h5 id="6、版本信息"><a href="#6、版本信息" class="headerlink" title="6、版本信息"></a>6、版本信息</h5><p>显示浏览器的真实版本信息，格式为：浏览器/版本信息</p>
+<h4 id="浏览器User-Agent的详细信息"><a href="#浏览器User-Agent的详细信息" class="headerlink" title="浏览器User-Agent的详细信息"></a>浏览器User-Agent的详细信息</h4><h5 id="PC端："><a href="#PC端：" class="headerlink" title="PC端："></a>PC端：</h5><ul>
+<li><p>safari5.1–MAC<br>User-Agent:Mozilla/5.0(Macintosh;U;IntelMacOSX10_6_8;en-us)AppleWebKit/534.50(KHTML,likeGecko)Version/5.1Safari/534.50</p>
+</li>
+<li><p>safari5.1–Windows<br>User-Agent:Mozilla/5.0(Windows;U;WindowsNT6.1;en-us)AppleWebKit/534.50(KHTML,likeGecko)Version/5.1Safari/534.50</p>
+</li>
+<li><p>IE9.0<br>User-Agent:Mozilla/5.0(compatible;MSIE9.0;WindowsNT6.1;Trident/5.0;</p>
+</li>
+<li><p>IE8.0<br>User-Agent:Mozilla/4.0(compatible;MSIE8.0;WindowsNT6.0;Trident/4.0)</p>
+</li>
+<li><p>IE7.0<br>User-Agent:Mozilla/4.0(compatible;MSIE7.0;WindowsNT6.0)</p>
+</li>
+<li><p>IE6.0<br>User-Agent:Mozilla/4.0(compatible;MSIE6.0;WindowsNT5.1)</p>
+</li>
+<li><p>Firefox4.0.1–MAC<br>User-Agent:Mozilla/5.0(Macintosh;IntelMacOSX10.6;rv:2.0.1)Gecko/20100101Firefox/4.0.1</p>
+</li>
+<li><p>Firefox4.0.1–Windows<br>User-Agent:Mozilla/5.0(WindowsNT6.1;rv:2.0.1)Gecko/20100101Firefox/4.0.1</p>
+</li>
+<li><p>Opera11.11–MAC<br>User-Agent:Opera/9.80(Macintosh;IntelMacOSX10.6.8;U;en)Presto/2.8.131Version/11.11</p>
+</li>
+<li><p>Opera11.11–Windows<br>User-Agent:Opera/9.80(WindowsNT6.1;U;en)Presto/2.8.131Version/11.11</p>
+</li>
+<li><p>Chrome17.0–MAC<br>User-Agent:Mozilla/5.0(Macintosh;IntelMacOSX10_7_0)AppleWebKit/535.11(KHTML,likeGecko)Chrome/17.0.963.56Safari/535.11</p>
+</li>
+<li><p>傲游（Maxthon）<br>User-Agent:Mozilla/4.0(compatible;MSIE7.0;WindowsNT5.1;Maxthon2.0)</p>
+</li>
+<li><p>腾讯TT<br>User-Agent:Mozilla/4.0(compatible;MSIE7.0;WindowsNT5.1;TencentTraveler4.0)</p>
+</li>
+<li><p>世界之窗（TheWorld）2.x<br>User-Agent:Mozilla/4.0(compatible;MSIE7.0;WindowsNT5.1)</p>
+</li>
+<li><p>世界之窗（TheWorld）3.x<br>User-Agent:Mozilla/4.0(compatible;MSIE7.0;WindowsNT5.1;TheWorld)</p>
+</li>
+<li><p>搜狗浏览器1.x<br>User-Agent:Mozilla/4.0(compatible;MSIE7.0;WindowsNT5.1;Trident/4.0;SE2.XMetaSr1.0;SE2.XMetaSr1.0;.NETCLR2.0.50727;SE2.XMetaSr1.0)</p>
+</li>
+<li><p>360浏览器<br>User-Agent:Mozilla/4.0(compatible;MSIE7.0;WindowsNT5.1;360SE)</p>
+</li>
+<li><p>Avant<br>User-Agent:Mozilla/4.0(compatible;MSIE7.0;WindowsNT5.1;AvantBrowser)</p>
+</li>
+<li><p>GreenBrowser<br>User-Agent:Mozilla/4.0(compatible;MSIE7.0;WindowsNT5.1)</p>
+</li>
+</ul>
+<h5 id="移动设备端："><a href="#移动设备端：" class="headerlink" title="移动设备端："></a>移动设备端：</h5><ul>
+<li><p>safariiOS4.33–iPhone<br>User-Agent:Mozilla/5.0(iPhone;U;CPUiPhoneOS4_3_3likeMacOSX;en-us)AppleWebKit/533.17.9(KHTML,likeGecko)Version/5.0.2Mobile/8J2Safari/6533.18.5</p>
+</li>
+<li><p>safariiOS4.33–iPodTouch<br>User-Agent:Mozilla/5.0(iPod;U;CPUiPhoneOS4_3_3likeMacOSX;en-us)AppleWebKit/533.17.9(KHTML,likeGecko)Version/5.0.2Mobile/8J2Safari/6533.18.5</p>
+</li>
+<li><p>safariiOS4.33–iPad<br>User-Agent:Mozilla/5.0(iPad;U;CPUOS4_3_3likeMacOSX;en-us)AppleWebKit/533.17.9(KHTML,likeGecko)Version/5.0.2Mobile/8J2Safari/6533.18.5</p>
+</li>
+<li><p>AndroidN1<br>User-Agent:Mozilla/5.0(Linux;U;Android2.3.7;en-us;NexusOneBuild/FRF91)AppleWebKit/533.1(KHTML,likeGecko)Version/4.0MobileSafari/533.1</p>
+</li>
+<li><p>AndroidQQ浏览器Forandroid<br>User-Agent:MQQBrowser/26Mozilla/5.0(Linux;U;Android2.3.7;zh-cn;MB200Build/GRJ22;CyanogenMod-7)AppleWebKit/533.1(KHTML,likeGecko)Version/4.0MobileSafari/533.1</p>
+</li>
+<li><p>AndroidOperaMobile<br>User-Agent:Opera/9.80(Android2.3.4;Linux;OperaMobi/build-1107180945;U;en-GB)Presto/2.8.149Version/11.10</p>
+</li>
+<li><p>AndroidPadMotoXoom<br>User-Agent:Mozilla/5.0(Linux;U;Android3.0;en-us;XoomBuild/HRI39)AppleWebKit/534.13(KHTML,likeGecko)Version/4.0Safari/534.13</p>
+</li>
+<li><p>BlackBerry<br>User-Agent:Mozilla/5.0(BlackBerry;U;BlackBerry9800;en)AppleWebKit/534.1+(KHTML,likeGecko)Version/6.0.0.337MobileSafari/534.1+</p>
+</li>
+<li><p>WebOSHPTouchpad<br>User-Agent:Mozilla/5.0(hp-tablet;Linux;hpwOS/3.0.0;U;en-US)AppleWebKit/534.6(KHTML,likeGecko)wOSBrowser/233.70Safari/534.6TouchPad/1.0</p>
+</li>
+<li><p>NokiaN97<br>User-Agent:Mozilla/5.0(SymbianOS/9.4;Series60/5.0NokiaN97-1/20.0.019;Profile/MIDP-2.1Configuration/CLDC-1.1)AppleWebKit/525(KHTML,likeGecko)BrowserNG/7.1.18124</p>
+</li>
+<li><p>WindowsPhoneMango<br>User-Agent:Mozilla/5.0(compatible;MSIE9.0;WindowsPhoneOS7.5;Trident/5.0;IEMobile/9.0;HTC;Titan)</p>
+</li>
+<li><p>UC无<br>User-Agent:UCWEB7.0.2.37/28/999</p>
+</li>
+<li><p>UC标准<br>User-Agent:NOKIA5700/UCWEB7.0.2.37/28/999</p>
+</li>
+<li><p>UCOpenwave<br>User-Agent:Openwave/UCWEB7.0.2.37/28/999</p>
+</li>
+<li><p>UCOpera<br>User-Agent:Mozilla/4.0(compatible;MSIE6.0;)Opera/UCWEB7.0.2.37/28/999</p>
+</li>
+</ul>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-06-17T05:11:58.685Z" itemprop="dateUpdated">2018-06-17 05:11:58</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/server/20180617-23.html" target="_blank" rel="external">http://blog.inbelieve.top/server/20180617-23.html</a>
+        
+    </div>
+    <footer>
+        <a href="http://blog.inbelieve.top">
+            <img src="/img/avatar.jpg" alt="Martin Long">
+            Martin Long
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">HTML5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">HTTP</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.inbelieve.top/server/20180617-23.html&title=《浏览器User-Agent总结》 — 追光者的部落&source=有些鸟儿天生是没办法被关在笼子里的,因为他的每一片羽毛都闪耀着自由的光辉" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+
+
+      
+    <div onclick="ShowGitment()" id="gitment-display-button" style="display: block;">
+        <span>显示 Gitment 评论</span>
+    </div>
+    <div id="gitment" class="hide"></div>
+
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="next">
+      <a href="/server/20180617-22.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">HTTP状态码</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#字串说明："><span class="post-toc-number">1.</span> <span class="post-toc-text">字串说明：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#浏览器User-Agent的详细信息"><span class="post-toc-number">2.</span> <span class="post-toc-text">浏览器User-Agent的详细信息</span></a></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+            请作者喝杯咖啡
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+</div>
+
+        <footer class="footer">
+    
+    <div class="bottom">
+        <p>
+            <span>
+                Martin Long &copy; 2017 - 2018
+            </span>
+        		
+           	
+            
+            
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">book</a>
+            </span>
+            
+            
+            
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.inbelieve.top/server/20180617-23.html&title=《浏览器User-Agent总结》 — 追光者的部落&source=有些鸟儿天生是没办法被关在笼子里的,因为他的每一片羽毛都闪耀着自由的光辉" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNElEQVR42u3awU7DMBAEUP7/p4OEOFSiCTN2iqj9fKpokvrlYHY9/viIx/E1Hj8/jp9XXn/bPvO2gYGB8baM43Jc/2T+zDPM9fXJ3DAwMPZhJItsy5i5Pp8bBgYGxtlU2rIvuQsDAwPjrgW3LdqOeGBgYGBcM5JHJz9w3dC2RedLenEMDIw3ZIwFA3/z+eX5BgYGxr9nHNNjPv6cKSW/78XAwFiakW/c5wHkWJGXP7OoQDEwMJZg5Nv9+QbZfDCZv9Yn/zcwMDC2YSSxYhtS5kfE2tACAwNjbUYy9WQRbNvU5K66eMXAwFiU0d7QHo9Iosr5rTcMDIzdGGM/3y6gbSv7SwmLgYGxJWO+iGzb16S5rRdcDAyM5RhjUWIbG8zEA6f3YmBgbMMYWzpn4s+Z5b7oxTEwMJZg5CFiXsC18eTMZwwMjN0Y+YLYvoKx42KDGSwGBsZCjLEDE+0mWlto5pN+ciUGBsZyjKTUaw9htKe2bmibMTAwlmYk8cBdhWO73ZbPBAMDY0/GTDs6EwO0YWexL4iBgbEEIynF8qVwbCutfQWn8QAGBsZyjPa4Q9vWjm3bjUURGBgY6zGOcrQTvb6+jVFP78LAwFiaMbbUjh0Lu/cJGBgYuzHyMm6mic3faN5OD1ajGBgYb8t4XWCQ/2WqF8fAwMCIF9zkmWMhwQ3VKwYGxgaMfLMsX1Lb6BQDA2NnRh43ti1oGyoMvhQMDIylGWPHLOYPTIwttXXJiIGB8d6MT9IRGQYfYMt4AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.0.0"></script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.0.0"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.0.0"></script>
+
+<!-- third-party -->
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.0.0"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+    
+    
+        <script type="text/javascript" src="/js/plugins/gitmint.browser.js?v=1.0.0"></script>
+<script type="text/javascript" src="/js/plugins/gitment.js?v=1.0.0"></script>
+    
+
+
+
+
+
+
+
+    <script>
+    (function() {
+        var OriginTitile = document.title, titleTime;
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = 'leaving！';
+                clearTimeout(titleTime);
+            } else {
+                document.title = 'welcome!';
+                titleTime = setTimeout(function() {
+                    document.title = OriginTitile;
+                },2000);
+            }
+        });
+    })();
+</script>
+
+
+
+
+    
+</body>
+</html>

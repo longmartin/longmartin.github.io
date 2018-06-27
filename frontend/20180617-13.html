@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    
+    <title>nodejs之pm2 | 追光者的部落 | 种一棵树最好的时间是十年之前,其次是现在</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="JavaScript,NodeJs">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.0.0">
+    
+        <link rel="stylesheet" href="/css/third-party/gitment.css?v=1.0.0">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
+            v: JSON.parse('{"enable":false,"appid":null,"appkey":null,"notify":false,"verify":false,"placeholder":"suggest","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":true,"lazy":true,"owner":"longmartin","repo":"gitments","oauth":{"client_id":"f39a2a4a21ec450c4efe","client_secret":"010e883ee20561f202de087fc6e488d0734d94fb"},"perPage":10}'),
+            d: JSON.parse('{"app_id":null}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Martin Long</h5>
+          <a href="mailto:1156341485@qq.com" title="1156341485@qq.com" class="mail">
+            
+              <span>1</span>
+            
+              <span>1</span>
+            
+              <span>5</span>
+            
+              <span>6</span>
+            
+              <span>3</span>
+            
+              <span>4</span>
+            
+              <span>1</span>
+            
+              <span>4</span>
+            
+              <span>8</span>
+            
+              <span>5</span>
+            
+              <span>@</span>
+            
+              <span>q</span>
+            
+              <span>q</span>
+            
+              <span>.</span>
+            
+              <span>c</span>
+            
+              <span>o</span>
+            
+              <span>m</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="https://github.com/longmartin" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                HOME
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文档
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="https://github.com/longmartin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="https://www.jianshu.com/u/696184ca9e21" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                简书
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>nodejs之pm2</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">nodejs之pm2</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-06-17T09:27:14.000Z" itemprop="datePublished" class="page-time">
+  2018-06-17
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/frontend/">大前端</a></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-20180617-13"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">nodejs之pm2</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-06-17 09:27:14" datetime="2018-06-17T09:27:14.000Z"  itemprop="datePublished">2018-06-17</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/frontend/">大前端</a></li></ul>
+
+
+
+            
+
+            
+
+
+<span class="post-comments-counter" id="/frontend/20180617-13.html">
+    <span class="post-meta-item-icon">
+        <i class="icon icon-comment-o"></i>
+    </span>
+    
+    <a href="/frontend/20180617-13.html#gitment-display-button" onclick="ShowGitment()">
+        <span class="post-comments-count gitment-comments-count" itemprop="commentsCount"></span>
+    </a>
+</span>
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>pm2 是一个带有负载均衡功能的Node应用的进程管理器.当你要把你的独立代码利用全部的服务器上的所有CPU,并保证进程永远都活着,0秒的重载, PM2可以作为完美的守护进程。</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g pm2</span><br></pre></td></tr></table></figure>
+<h4 id="pm2常用命令"><a href="#pm2常用命令" class="headerlink" title="pm2常用命令"></a>pm2常用命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">$ pm2 start app.js              # 启动app.js应用程序</span><br><span class="line"></span><br><span class="line">$ pm2 start app.js -i 4         # cluster mode 模式启动4个app.js的应用实例     # 4个应用程序会自动进行负载均衡</span><br><span class="line"></span><br><span class="line">$ pm2 start app.js --name=&quot;api&quot; # 启动应用程序并命名为 &quot;api&quot;</span><br><span class="line"></span><br><span class="line">$ pm2 start app.js --watch      # 当文件变化时自动重启应用</span><br><span class="line"></span><br><span class="line">$ pm2 start script.sh           # 启动 bash 脚本</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ pm2 list                      # 列表 PM2 启动的所有的应用程序</span><br><span class="line"></span><br><span class="line">$ pm2 monit                     # 显示每个应用程序的CPU和内存占用情况</span><br><span class="line"></span><br><span class="line">$ pm2 show [app-name]           # 显示应用程序的所有信息</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ pm2 logs                      # 显示所有应用程序的日志</span><br><span class="line"></span><br><span class="line">$ pm2 logs [app-name]           # 显示指定应用程序的日志</span><br><span class="line"></span><br><span class="line">$ pm2 flush</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ pm2 stop all                  # 停止所有的应用程序</span><br><span class="line"></span><br><span class="line">$ pm2 stop 0                    # 停止 id为 0的指定应用程序</span><br><span class="line"></span><br><span class="line">$ pm2 restart all               # 重启所有应用</span><br><span class="line"></span><br><span class="line">$ pm2 reload all                # 重启 cluster mode下的所有应用</span><br><span class="line"></span><br><span class="line">$ pm2 gracefulReload all        # Graceful reload all apps in cluster mode</span><br><span class="line"></span><br><span class="line">$ pm2 delete all                # 关闭并删除所有应用</span><br><span class="line"></span><br><span class="line">$ pm2 delete 0                  # 删除指定应用 id 0</span><br><span class="line"></span><br><span class="line">$ pm2 scale api 10              # 把名字叫api的应用扩展到10个实例</span><br><span class="line"></span><br><span class="line">$ pm2 reset [app-name]          # 重置重启数量</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ pm2 startup                   # 创建开机自启动命令</span><br><span class="line"></span><br><span class="line">$ pm2 save                      # 保存当前应用列表</span><br><span class="line"></span><br><span class="line">$ pm2 resurrect                 # 重新加载保存的应用列表</span><br><span class="line"></span><br><span class="line">$ pm2 update                    # Save processes, kill PM2 and restore processes</span><br><span class="line"></span><br><span class="line">$ pm2 generate                  # Generate a sample json configuration file</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ pm2 deploy app.json prod setup    # Setup &quot;prod&quot; remote server</span><br><span class="line"></span><br><span class="line">$ pm2 deploy app.json prod          # Update &quot;prod&quot; remote server</span><br><span class="line"></span><br><span class="line">$ pm2 deploy app.json prod revert 2 # Revert &quot;prod&quot; remote server by 2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ pm2 module:generate [name]    # Generate sample module with name [name]</span><br><span class="line"></span><br><span class="line">$ pm2 install pm2-logrotate     # Install module (here a log rotation system)</span><br><span class="line"></span><br><span class="line">$ pm2 uninstall pm2-logrotate   # Uninstall module</span><br><span class="line"></span><br><span class="line">$ pm2 publish                   # Increment version, git push and npm publish</span><br></pre></td></tr></table></figure>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-06-17T01:31:35.292Z" itemprop="dateUpdated">2018-06-17 01:31:35</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/frontend/20180617-13.html" target="_blank" rel="external">http://blog.inbelieve.top/frontend/20180617-13.html</a>
+        
+    </div>
+    <footer>
+        <a href="http://blog.inbelieve.top">
+            <img src="/img/avatar.jpg" alt="Martin Long">
+            Martin Long
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">NodeJs</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.inbelieve.top/frontend/20180617-13.html&title=《nodejs之pm2》 — 追光者的部落&source=有些鸟儿天生是没办法被关在笼子里的,因为他的每一片羽毛都闪耀着自由的光辉" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+
+
+      
+    <div onclick="ShowGitment()" id="gitment-display-button" style="display: block;">
+        <span>显示 Gitment 评论</span>
+    </div>
+    <div id="gitment" class="hide"></div>
+
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="prev">
+      <a href="/frontend/20180617-14.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">js正则表达式之爬虫</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/frontend/20180617-12.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">nodejs之追加内容到文件</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装"><span class="post-toc-number">2.</span> <span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#pm2常用命令"><span class="post-toc-number">3.</span> <span class="post-toc-text">pm2常用命令</span></a></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+            请作者喝杯咖啡
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+</div>
+
+        <footer class="footer">
+    
+    <div class="bottom">
+        <p>
+            <span>
+                Martin Long &copy; 2017 - 2018
+            </span>
+        		
+           	
+            
+            
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">book</a>
+            </span>
+            
+            
+            
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.inbelieve.top/frontend/20180617-13.html&title=《nodejs之pm2》 — 追光者的部落&source=有些鸟儿天生是没办法被关在笼子里的,因为他的每一片羽毛都闪耀着自由的光辉" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACM0lEQVR42u3ay26jQBAF0Pz/TyfbGVmYe6txFOjDClkYOCxK9fr6io/v0fHvf1/vdnT+ev1lBwYGxm0Z+asc/XL0r/cv/f4+7VMwMDB2YBxFsOTxeRhtn5Vcj4GBgdGezwJo8mkwMDAw2oC7UmOuPxcDA2NPRt4yyx+Tt9V+tRbHwMC4ISMPl79//pH5BgYGxq0YKyPJtjS9djj631MwMDAezcgDXJuQtalhUlSfvA8GBsZDGSvrEe9fKPmlLW4P74aBgbENo13tysNingK2xW2U4WJgYNycMUvyksA6a9/nA4CllhwGBsatGHmwa4cEbUMt/xAnM1gMDIyHMlYa9PmqRPLhkhTzggwUAwPjtoz1fYY8WbxgYPlai2NgYGzMaMcGeerZjhkOr8TAwNiAMRsuzrKy2aD0pLjFwMDYnjEbMbZtuHZRAwMDYzdGEkBno8r2E8zKYwwMjN0Y+U3boNwunCXrGhgYGPswZkPKNozmw86WjYGB8WzGbMTYtuTapHPW+MPAwNiBsbKYVQ8d49Zb0cjDwMDYjDFrhM2K2DahXJqRYmBg3JxRtLfKhDJ/0Xxp42TlAgMD40GMlfJ1fYEsb719sNGGgYHx5xn50QbQq5bAomULDAyMDRifSOzyttr6AgcGBsY+jLYdP2u3XVXEFvMNDAyMLRl5N75dv1jKZzEwMDDK4rNtxiWF7kkTEAMDYwPGyjpFuzax3lzDwMDYjdGWjm1qOGul1UUsBgbGMxk/Iz5gvmfR9zcAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.0.0"></script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.0.0"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.0.0"></script>
+
+<!-- third-party -->
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.0.0"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+    
+    
+        <script type="text/javascript" src="/js/plugins/gitmint.browser.js?v=1.0.0"></script>
+<script type="text/javascript" src="/js/plugins/gitment.js?v=1.0.0"></script>
+    
+
+
+
+
+
+
+
+    <script>
+    (function() {
+        var OriginTitile = document.title, titleTime;
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = 'leaving！';
+                clearTimeout(titleTime);
+            } else {
+                document.title = 'welcome!';
+                titleTime = setTimeout(function() {
+                    document.title = OriginTitile;
+                },2000);
+            }
+        });
+    })();
+</script>
+
+
+
+
+    
+</body>
+</html>

@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     
     
-    <title>Linux上安装git | 追光者的部落 | 种一棵树最好的时间是十年之前,其次是现在</title>
+    <title>js正则表达式之爬虫 | 追光者的部落 | 种一棵树最好的时间是十年之前,其次是现在</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="">
+    <meta name="keywords" content="JavaScript">
     <link rel="shortcut icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="/css/style.css?v=1.0.0">
     
@@ -156,7 +156,7 @@
           <i class="icon icon-lg icon-navicon"></i>
         </a>
         <div class="flex-col header-title ellipsis">
-            <span>Linux上安装git</span>
+            <span>js正则表达式之爬虫</span>
             
         </div>
         
@@ -168,13 +168,15 @@
 </header>
 <header class="content-header post-header">
     <div class="container fade-scale">
-        <h1 class="title">Linux上安装git</h1>
+        <h1 class="title">js正则表达式之爬虫</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-06-16T09:27:35.000Z" itemprop="datePublished" class="page-time">
-  2018-06-16
+                <time datetime="2018-06-17T09:27:27.000Z" itemprop="datePublished" class="page-time">
+  2018-06-17
 </time>
 
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/frontend/">大前端</a></li></ul>
 
             
         </h5>
@@ -199,27 +201,29 @@
 
 
 <div class="container body-wrap">
-    <article id="post-20180616-1"
+    <article id="post-20180617-14"
   class="post-article article-type-post" itemprop="blogPost">
     <div class="post-card">
-        <h1 class="post-card-title">Linux上安装git</h1>
+        <h1 class="post-card-title">js正则表达式之爬虫</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-06-16 09:27:35" datetime="2018-06-16T09:27:35.000Z"  itemprop="datePublished">2018-06-16</time>
+            <time class="post-time" title="2018-06-17 09:27:27" datetime="2018-06-17T09:27:27.000Z"  itemprop="datePublished">2018-06-17</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/frontend/">大前端</a></li></ul>
+
+
+
+            
 
             
 
 
-            
-
-            
-
-
-<span class="post-comments-counter" id="/uncategorized/20180616-1.html">
+<span class="post-comments-counter" id="/frontend/20180617-14.html">
     <span class="post-meta-item-icon">
         <i class="icon icon-comment-o"></i>
     </span>
     
-    <a href="/uncategorized/20180616-1.html#gitment-display-button" onclick="ShowGitment()">
+    <a href="/frontend/20180617-14.html#gitment-display-button" onclick="ShowGitment()">
         <span class="post-comments-count gitment-comments-count" itemprop="commentsCount"></span>
     </a>
 </span>
@@ -228,23 +232,64 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             
-            
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>通过爬虫爬去网页的dom之后就需要用正则来获取相关的信息，下面来说下正则表达式在爬虫中的应用</p>
+<h3 id="匹配"><a href="#匹配" class="headerlink" title="匹配"></a>匹配</h3><blockquote>
+<p>对于Html来说，一般需要匹配的就是相应DOM结构，比如标签属性，内容和数目之类的。</p>
+</blockquote>
+<p>拿一个简单的标签来说比如<code>&lt;span&gt;username&lt;/span&gt;</code>，我们想要拿到<code>username</code>这个内容来用正则实现。<br>这里要先补充一些需要使用的或者比较关键的正则关键词：</p>
+<ul>
+<li>自定义匹配多种字符 - <code>[ ]</code><ul>
+<li>使用方括号 [ ] 包含一系列字符，能够匹配其中任意一个字符。</li>
+<li>用 [^ ] 包含一系列字符，则能够匹配其中字符之外的任意一个字符。</li>
+<li>虽然可以匹配其中任意一个，但是只能是一个，不是多个。</li>
+</ul>
+</li>
+<li>修饰匹配次数 - <code>{}</code>，<code>?</code>，<code>+</code>，<code>*</code><ul>
+<li><strong>{n}</strong> - 表达式重复n次，比如：”/w{2}” 相当于 “/w/w”；”a{5}” 相当于 “aaaaa”</li>
+<li><strong>{m,n}</strong> - 表达式至少重复m次，最多重复n次，比如：”ba{1,3}”可以匹配 “ba”或”baa”或”baaa”</li>
+<li><strong>{m,}</strong> - 表达式至少重复m次，比如：”/w/d{2,}”可以匹配 “a12”,”_456”,”M12344”…</li>
+<li><strong>?</strong> - 匹配表达式0次或者1次，相当于 {0,1}，比如：”a[cd]?”可以匹配 “a”,”ac”,”ad”</li>
+<li><strong>+</strong> - 表达式至少出现1次，相当于 {1,}，比如：”a+b”可以匹配 “ab”,”aab”,”aaab”…</li>
+<li><strong>*</strong> - 表达式不出现或出现任意次，相当于 {0,}，比如：”/^*b”可以匹配 “b”,”^^^b”…</li>
+</ul>
+</li>
+<li>用于group的字符 - <code>()</code><ul>
+<li>在被修饰匹配次数的时候，括号中的表达式可以作为整体被修饰</li>
+<li>取匹配结果的时候，括号中的表达式匹配到的内容可以被单独得到</li>
+</ul>
+</li>
+<li>用于扩展表达式含义<ul>
+<li><strong>g</strong>：代表可以进行全局匹配</li>
+<li><strong>i</strong>：代表不区分大小写匹配</li>
+<li><strong>m</strong>：代表可以进行多行匹配</li>
+</ul>
+</li>
+</ul>
+<p>上面几个概念就是我们所需要的所有东西了。</p>
+<p>接下里开始匹配span标签并且取出里面的内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span&gt;username&lt;/span&gt;</span><br></pre></td></tr></table></figure></p>
+<p>使用下面的正则即可，其中非贪婪模式很简单的避免了多个相同标签时匹配不正确的问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/&lt;span&gt;(.*?)&lt;\/span&gt;/</span><br></pre></td></tr></table></figure></p>
+<p>如果要取出某些属性的标签比如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span id=&quot;user&quot;&gt;username&lt;/span&gt;</span><br></pre></td></tr></table></figure></p>
+<p>则可以使用如下正则<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/&lt;span id=&quot;(.*?)&quot;&gt;(.*?)&lt;\/span&gt;/</span><br></pre></td></tr></table></figure></p>
+<p>这样就能够简单快速解决html里面各种标签的数据获取问题</p>
+<h3 id="筛选"><a href="#筛选" class="headerlink" title="筛选"></a>筛选</h3><p>对于匹配出来的数据，如果我们需要全局匹配，可以使用<code>String.match(RegExp)</code>方法。不过该方法只能获取一次的匹配结果，如果需要匹配大段文本中多次的结果就需要使用<code>RegExp.exec(string)</code>方法进行匹配。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var html = &apos;&lt;span id=&quot;sp_1&quot;&gt;a&lt;/span&gt;&lt;span id=&quot;sp_2&quot;&gt;b&lt;/span&gt;&lt;span id=&quot;sp_3&quot;&gt;c&lt;/span&gt;&apos;;</span><br><span class="line">var reg = /&lt;span id=&quot;(.*?)&quot;&gt;(.*?)&lt;\/span&gt;/g;</span><br><span class="line">var result;</span><br><span class="line">while ((result = reg.exec(html)) != null)  &#123;</span><br><span class="line">      console.log(result[1],result[2])</span><br><span class="line">&#125;</span><br><span class="line">//sp_1 a</span><br><span class="line">//sp_2 b</span><br><span class="line">//sp_3 c</span><br></pre></td></tr></table></figure></p>
+<p>这样，对于绝大部分网页内容分析筛选的工作都可以使用简单的正则快速的完成了。</p>
+
         </div>
         
 <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2018-06-16T01:27:35.494Z" itemprop="dateUpdated">2018-06-16 01:27:35</time>
+    Last updated: <time datetime="2018-06-17T01:31:44.909Z" itemprop="dateUpdated">2018-06-17 01:31:44</time>
 </span><br>
 
 
         
-        转载注明出处，原文地址：<a href="/uncategorized/20180616-1.html" target="_blank" rel="external">http://longmartin.github.io/uncategorized/20180616-1.html</a>
+        转载注明出处，原文地址：<a href="/frontend/20180617-14.html" target="_blank" rel="external">http://blog.inbelieve.top/frontend/20180617-14.html</a>
         
     </div>
     <footer>
-        <a href="http://longmartin.github.io">
+        <a href="http://blog.inbelieve.top">
             <img src="/img/avatar.jpg" alt="Martin Long">
             Martin Long
         </a>
@@ -260,6 +305,8 @@
         
         <div class="post-footer">
             
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">JavaScript</a></li></ul>
+
             <div class="page-share-wrap">
     
 
@@ -273,7 +320,7 @@
       </li>
       
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://longmartin.github.io/uncategorized/20180616-1.html&title=《Linux上安装git》 — 追光者的部落&source=有些鸟儿天生是没办法被关在笼子里的,因为他的每一片羽毛都闪耀着自由的光辉" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.inbelieve.top/frontend/20180617-14.html&title=《js正则表达式之爬虫》 — 追光者的部落&source=有些鸟儿天生是没办法被关在笼子里的,因为他的每一片羽毛都闪耀着自由的光辉" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -307,18 +354,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="prev">
-      <a href="/uncategorized/20180616-2.html" id="post-prev" class="post-nav-link">
+      <a href="/frontend/20180617-15.html" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">竞争</h4>
+        <h4 class="title">js数组之forEach,every,some,filter,map的区别</h4>
       </a>
     </div>
   
 
   
     <div class="next">
-      <a href="/frontend/arch1.html" id="post-next" class="post-nav-link">
+      <a href="/frontend/20180617-13.html" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">form-data、x-www-form-urlencoded、raw、binary的区别</h4>
+        <h4 class="title">nodejs之pm2</h4>
       </a>
     </div>
   
@@ -326,6 +373,14 @@
 
 
     
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#匹配"><span class="post-toc-number">2.</span> <span class="post-toc-text">匹配</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#筛选"><span class="post-toc-number">3.</span> <span class="post-toc-text">筛选</span></a></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
     
 </article>
 
@@ -393,7 +448,7 @@
       </li>
       
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://longmartin.github.io/uncategorized/20180616-1.html&title=《Linux上安装git》 — 追光者的部落&source=有些鸟儿天生是没办法被关在笼子里的,因为他的每一片羽毛都闪耀着自由的光辉" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.inbelieve.top/frontend/20180617-14.html&title=《js正则表达式之爬虫》 — 追光者的部落&source=有些鸟儿天生是没办法被关在笼子里的,因为他的每一片羽毛都闪耀着自由的光辉" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -405,7 +460,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIElEQVR42u3ay26jQBAFUP//T2e2kSI791bhUdwcVhYBmkOkoh48HvH29W17tv/n9ii3zbkYGBhnM5JbaRnJKskViseEgYFxA8azhZ/9bgGbtV4fj4GBgdEyNme9vgIGBgbGjLEpiZO/YmBgYLRF7KYNl4TgVRqKgYFxNKMNkf/z91vmGxgYGB/F2BeWm+OTPdFdYWBgHM3IA1yy2OsiM+Ft7gcDA+NUxuwTijakvoblD+vpuRgYGEczrv20a9bob9PK6H+CgYFxM0Zy05twfNlAAgMD42hGu/ysEJ2Vtckjw8DAuBtjP2hs8fkV3j5rxcDA+JOMWcJXjBWDEcIwBfx+FgYGxtGMPOC2y+eNvCRlrItYDAyMgxizjyfaMN225PIRQpGNYmBgfCwjL27bsJgvOfy0ot0wMDCOYFw1SmwD5VWjUwwMjLMZ+zbZ7BFsimcMDIy7MdrGWR4oZ6OFPMRjYGDcjdEC2uRvNpi8rDrHwMD4cMbstDbgtoG7TSUxMDDuwMiHlPs2WVGU5vsxMDBuwMhTt/wzi2s/mKircAwMjCMYX+W2H3nuG3m/vDEwMDCOY2yabm0ClzyaZKh5ce8QAwPjQxizgeJVrbS2kVdkjhgYGMcx9oFv9iDagvaXUhYDAwPj0kb/bJzwdHUMDAyMOHTmo4L9dd743sDAwPiTjCSxmwXK5Pi2ZMXAwLgbY5bktYPP2ZH5awADA+NQxj8kHomHRByoQAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNklEQVR42u3aS07EMBBF0ex/043ECKlJuK/KAVK+HrVoiH0yMPU7Drxen+vrZ7Le//bsae9PPu5YMmTIeCwjPcrZNuTo17ukr0yGDBm7Mfgle7bB9R3YvyF/OLMMGTJk4M/kWORbGTJkyOhcuPwi5mnqH/zfkCFDxgMZtauQBIjXwSJnL8vFZciQ8UBGrTHwO59v72/IkCHj3zNe4boOzq6356W6+FQyZMgYzUgPxAPHNDSsBY5H7b3KkCHjUQyyPfm2cx2njG+eJkOGjO0Z6bBFZ7yMD3DEF64MGTIGMWqpaW1ELE16ZciQsSejVpRPN6gV8njQKUOGjB0YJNTrlP5r4xp8BESGDBk7MHh5a+2VWvsJamHKkCFjECMtwfPyXC1J5i9RhgwZ+zDSRLR2lFo7kyfGMmTImM2Io8jwN/nTOiGjDBkyZjPWFv3T0LBfI4x7HTJkyHg4o5VAhu3PuGvBU2gZMmSMY9RalWvTWl7mQ0msDBkyxjHSMQg+KkES1M4rQ0GhDBkyRjBICprGmOkoWBpEBlGtDBkyBjH6R08TY3LQ4BXIkCFjNINfgmn4mCautVGz0wBRhgwZgxivcKVFN16M4zenDBkydmOkQR65HNcW4DoFPhkyZExidAYg0vfEh73ixqcMGTI2YPASPy+QrV1ork2GDBnbM2qJK0lKyfWNGgMyZMiQ0QgH06Ymh8mQIWMfBg/77mt58qYCGraQIUPGIEatMVDbvhY4LsPIkCHjeYwPBlDRPzNnYOgAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 

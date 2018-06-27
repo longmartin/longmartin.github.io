@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    
+    <title>设置rubygems国内镜像地址 | 追光者的部落 | 种一棵树最好的时间是十年之前,其次是现在</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Ruby">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.0.0">
+    
+        <link rel="stylesheet" href="/css/third-party/gitment.css?v=1.0.0">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
+            v: JSON.parse('{"enable":false,"appid":null,"appkey":null,"notify":false,"verify":false,"placeholder":"suggest","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":true,"lazy":true,"owner":"longmartin","repo":"gitments","oauth":{"client_id":"f39a2a4a21ec450c4efe","client_secret":"010e883ee20561f202de087fc6e488d0734d94fb"},"perPage":10}'),
+            d: JSON.parse('{"app_id":null}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Martin Long</h5>
+          <a href="mailto:1156341485@qq.com" title="1156341485@qq.com" class="mail">
+            
+              <span>1</span>
+            
+              <span>1</span>
+            
+              <span>5</span>
+            
+              <span>6</span>
+            
+              <span>3</span>
+            
+              <span>4</span>
+            
+              <span>1</span>
+            
+              <span>4</span>
+            
+              <span>8</span>
+            
+              <span>5</span>
+            
+              <span>@</span>
+            
+              <span>q</span>
+            
+              <span>q</span>
+            
+              <span>.</span>
+            
+              <span>c</span>
+            
+              <span>o</span>
+            
+              <span>m</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="https://github.com/longmartin" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                HOME
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文档
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="https://github.com/longmartin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="https://www.jianshu.com/u/696184ca9e21" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                简书
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>设置rubygems国内镜像地址</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">设置rubygems国内镜像地址</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-06-16T09:29:14.000Z" itemprop="datePublished" class="page-time">
+  2018-06-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/server/">后台</a></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-20180616-3"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">设置rubygems国内镜像地址</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-06-16 09:29:14" datetime="2018-06-16T09:29:14.000Z"  itemprop="datePublished">2018-06-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/server/">后台</a></li></ul>
+
+
+
+            
+
+            
+
+
+<span class="post-comments-counter" id="/server/20180616-3.html">
+    <span class="post-meta-item-icon">
+        <i class="icon icon-comment-o"></i>
+    </span>
+    
+    <a href="/server/20180616-3.html#gitment-display-button" onclick="ShowGitment()">
+        <span class="post-comments-count gitment-comments-count" itemprop="commentsCount"></span>
+    </a>
+</span>
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <p>安装完ruby和rubygems后发现gem下载包很慢，这是因为gem的仓库地址是国外的原因。</p>
+<p>我查了一下，发现国内有镜像<a href="https://gems.ruby-china.org/可以使用，现在我们来把它设置成国内镜像。" target="_blank" rel="noopener">https://gems.ruby-china.org/可以使用，现在我们来把它设置成国内镜像。</a></p>
+<h5 id="查看gem是否安装"><a href="#查看gem是否安装" class="headerlink" title="查看gem是否安装"></a>查看gem是否安装</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gem -v</span><br><span class="line">2.5.1</span><br></pre></td></tr></table></figure>
+<h5 id="更换源地址"><a href="#更换源地址" class="headerlink" title="更换源地址"></a>更换源地址</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/</span><br><span class="line">$ gem sources -l</span><br><span class="line">*** CURRENT SOURCES ***</span><br><span class="line">https://gems.ruby-china.org/</span><br></pre></td></tr></table></figure>
+<h5 id="SSL-证书错误"><a href="#SSL-证书错误" class="headerlink" title="SSL 证书错误"></a>SSL 证书错误</h5><p>正常情况下，你是不会遇到 SSL 证书错误的，除非你的 Ruby 安装方式不正确。</p>
+<p>如果遇到 SSL 证书问题，你又无法解决，请修改 ~/.gemrc 文，增加 ssl_verify_mode: 0 配置，以便于 RubyGems 可以忽略 SSL 证书错误。</p>
+<ul>
+<li><p>linux</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">:sources:</span><br><span class="line">- https://gems.ruby-china.org</span><br><span class="line">:ssl_verify_mode: 0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>windows<br>下载 <a href="https://curl.haxx.se/ca/cacert.pem(这里我使用mingw64下载)" target="_blank" rel="noopener">https://curl.haxx.se/ca/cacert.pem(这里我使用mingw64下载)</a><br>把文件cacert.pem放到一个目录下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line">curl https://curl.haxx.se/ca/cacert.pem --silent -O</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>通过系统-&gt;高级系统设置-&gt;环境变量设置SSL_CERT_FILE,然后重新执行配置操作(关闭当前命令行在开)</p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-06-16T23:50:52.015Z" itemprop="dateUpdated">2018-06-16 23:50:52</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/server/20180616-3.html" target="_blank" rel="external">http://blog.inbelieve.top/server/20180616-3.html</a>
+        
+    </div>
+    <footer>
+        <a href="http://blog.inbelieve.top">
+            <img src="/img/avatar.jpg" alt="Martin Long">
+            Martin Long
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ruby/">Ruby</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.inbelieve.top/server/20180616-3.html&title=《设置rubygems国内镜像地址》 — 追光者的部落&source=有些鸟儿天生是没办法被关在笼子里的,因为他的每一片羽毛都闪耀着自由的光辉" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+
+
+      
+    <div onclick="ShowGitment()" id="gitment-display-button" style="display: block;">
+        <span>显示 Gitment 评论</span>
+    </div>
+    <div id="gitment" class="hide"></div>
+
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="prev">
+      <a href="/server/20180616-4.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">docker基本命令详解</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/life/20180616-2.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">关于竞争</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+            请作者喝杯咖啡
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+</div>
+
+        <footer class="footer">
+    
+    <div class="bottom">
+        <p>
+            <span>
+                Martin Long &copy; 2017 - 2018
+            </span>
+        		
+           	
+            
+            
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">book</a>
+            </span>
+            
+            
+            
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.inbelieve.top/server/20180616-3.html&title=《设置rubygems国内镜像地址》 — 追光者的部落&source=有些鸟儿天生是没办法被关在笼子里的,因为他的每一片羽毛都闪耀着自由的光辉" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3aS27jMBAFQN//0hpgVjMwLL/HdgKYLK4CQZZYWnT6w8cjXtff9Xzl3+vPV/Ln5E8YLQwMjK9lXLfr1T35c+6327735R4wMDAOYNwHxxy29gnuf5sEbgwMDIy1IJgngkmYxsDAwMgZScG5Vo5iYGBg3DPWStD757QfZRLcMTAw9ma0g4Hf/PsH5xsYGBhfwrjK1Q4DJuG42BUGBsbWjKTF3x68yFtvk9AfZbgYGBgbMSblYntPWyrXzT4MDIxNGZMCMjlmkYf19jAHBgbGaYx8GJlcaT9KOxioYz8GBsbXMiZl6mSc+aki9r+uIQYGxgGM9pBEDivSu/LwBwYGxjmMoie3VI7Ok9E3CSUGBsYxjCSwtqQ1WH0nBgbG1oy87dUOLPNUcm14+ebTYGBgbMRoR4wJqU0K21D+MjXEwMDYmrE2ekx+lWw6b7dFGS4GBsZ2jDalm7Te2tbeFazFzBQDA+OrGGsHvNowmt+/FugxMDD2ZuTN9zm1LYOT/xVvSBgYGFsw8nQtf+W8iM0DLgYGxpmM/DVFC2wJVpTEGBgYWzPaRv98SPAYryirxcDA2IhxlWut+dWWxPWxWgwMjK0Zo9KxHACsFbpJUw8DA+MERhJk82FAu+m1wxkYGBhnMvIgmyR8H2iclYNPDAwMjPbYVpsyzu/EwMDAmLTJJlsvQjwGBsYBjHn7PnnCpxp8GBgYpzHmxynyAWd7Z34dAwNjU8YfY37WLD+bpMIAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.0.0"></script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.0.0"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.0.0"></script>
+
+<!-- third-party -->
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.0.0"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+    
+    
+        <script type="text/javascript" src="/js/plugins/gitmint.browser.js?v=1.0.0"></script>
+<script type="text/javascript" src="/js/plugins/gitment.js?v=1.0.0"></script>
+    
+
+
+
+
+
+
+
+    <script>
+    (function() {
+        var OriginTitile = document.title, titleTime;
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = 'leaving！';
+                clearTimeout(titleTime);
+            } else {
+                document.title = 'welcome!';
+                titleTime = setTimeout(function() {
+                    document.title = OriginTitile;
+                },2000);
+            }
+        });
+    })();
+</script>
+
+
+
+
+    
+</body>
+</html>

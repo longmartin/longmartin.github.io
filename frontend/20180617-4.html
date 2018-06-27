@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    
+    <title>比较Cookie Session localStorage sessionStorage之区别 | 追光者的部落 | 种一棵树最好的时间是十年之前,其次是现在</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="JavaScript,HTML5">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.0.0">
+    
+        <link rel="stylesheet" href="/css/third-party/gitment.css?v=1.0.0">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
+            v: JSON.parse('{"enable":false,"appid":null,"appkey":null,"notify":false,"verify":false,"placeholder":"suggest","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":true,"lazy":true,"owner":"longmartin","repo":"gitments","oauth":{"client_id":"f39a2a4a21ec450c4efe","client_secret":"010e883ee20561f202de087fc6e488d0734d94fb"},"perPage":10}'),
+            d: JSON.parse('{"app_id":null}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Martin Long</h5>
+          <a href="mailto:1156341485@qq.com" title="1156341485@qq.com" class="mail">
+            
+              <span>1</span>
+            
+              <span>1</span>
+            
+              <span>5</span>
+            
+              <span>6</span>
+            
+              <span>3</span>
+            
+              <span>4</span>
+            
+              <span>1</span>
+            
+              <span>4</span>
+            
+              <span>8</span>
+            
+              <span>5</span>
+            
+              <span>@</span>
+            
+              <span>q</span>
+            
+              <span>q</span>
+            
+              <span>.</span>
+            
+              <span>c</span>
+            
+              <span>o</span>
+            
+              <span>m</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="https://github.com/longmartin" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                HOME
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文档
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="https://github.com/longmartin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="https://www.jianshu.com/u/696184ca9e21" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                简书
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>比较Cookie Session localStorage sessionStorage之区别</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">比较Cookie Session localStorage sessionStorage之区别</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-06-17T09:13:42.000Z" itemprop="datePublished" class="page-time">
+  2018-06-17
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/frontend/">大前端</a></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-20180617-4"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">比较Cookie Session localStorage sessionStorage之区别</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-06-17 09:13:42" datetime="2018-06-17T09:13:42.000Z"  itemprop="datePublished">2018-06-17</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/frontend/">大前端</a></li></ul>
+
+
+
+            
+
+            
+
+
+<span class="post-comments-counter" id="/frontend/20180617-4.html">
+    <span class="post-meta-item-icon">
+        <i class="icon icon-comment-o"></i>
+    </span>
+    
+    <a href="/frontend/20180617-4.html#gitment-display-button" onclick="ShowGitment()">
+        <span class="post-comments-count gitment-comments-count" itemprop="commentsCount"></span>
+    </a>
+</span>
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <p>今天在做Vue的项目时，遇到一个关于存储数据<code>list</code>的问题，最初打算是放在Vuex中，但发现一旦刷新页面就消失了，必须重新请求。于是，我又想了下把<code>list</code>存储在cookie里，发现cookie又有大小限制，而放在localStorage中又会一直存在，必须手动清除，最后选择了sessionStorage中。发现原来还有这样的几种不同的方式，这里就对现有的cookie,session,localstorage,sessionstorage进行分析下：</p>
+<h4 id="cookie和session都是用来跟踪浏览器用户身份的会话方式。区别："><a href="#cookie和session都是用来跟踪浏览器用户身份的会话方式。区别：" class="headerlink" title="cookie和session都是用来跟踪浏览器用户身份的会话方式。区别："></a>cookie和session都是用来跟踪浏览器用户身份的会话方式。区别：</h4><p>1、保持状态：</p>
+<ul>
+<li>cookie保存在浏览器端</li>
+<li>session保存在服务器端</li>
+</ul>
+<p>2、使用方式：</p>
+<ul>
+<li>cookie机制：如果不在浏览器中设置过期时间，cookie被保存在内存中，生命周期随浏览器的关闭而结束，这种cookie简称会话cookie。如果在浏览器中设置了cookie的过期时间，cookie被保存在硬盘中，关闭浏览器后，cookie数据仍然存在，直到过期时间结束才消失。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cookie是服务器发给客户端的特殊信息，cookie是以文本的方式保存在客户端，每次请求时都带上它</span><br></pre></td></tr></table></figure>
+<ul>
+<li>session机制：当服务器收到请求需要创建session对象时，首先会检查客户端请求中是否包含sessionid。如果有sessionid，服务器将根据该id返回对应session对象。如果客户端请求中没有sessionid，服务器会创建新的session对象，并把sessionid在本次响应中返回给客户端。通常使用cookie方式存储sessionid到客户端，在交互中浏览器按照规则将sessionid发送给服务器。如果用户禁用cookie，则要使用URL重写，可以通过response.encodeURL(url) 进行实现；API对encodeURL的结束为，当浏览器支持Cookie时，url不做任何处理；当浏览器不支持Cookie的时候，将会重写URL将SessionID拼接到访问地址后。</li>
+</ul>
+<p>3、存储内容：</p>
+<ul>
+<li>cookie只能保存字符串类型，以文本的方式</li>
+<li>session通过类似与Hashtable的数据结构来保存，能支持任何类型的对象(session中可含有多个对象)</li>
+</ul>
+<p>4、存储的大小：</p>
+<ul>
+<li>cookie：单个cookie保存的数据不能超过4kb；</li>
+<li>session大小没有限制。</li>
+</ul>
+<p>5、安全性：cookie：针对cookie所存在的攻击：Cookie欺骗，Cookie截获；session的安全性大于cookie。原因如下：</p>
+<ul>
+<li>sessionID存储在cookie中，若要攻破session首先要攻破cookie；</li>
+<li>sessionID是要有人登录，或者启动session_start才会有，所以攻破cookie也不一定能得到sessionID；</li>
+<li>第二次启动session_start后，前一次的sessionID就是失效了，session过期后，sessionID也随之失效。</li>
+<li><p>sessionID是加密的</p>
+<p>6、缺点：</p>
+</li>
+<li><p>cookie：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- 大小受限</span><br><span class="line">- 用户可以操作（禁用）cookie，使功能受限</span><br><span class="line">- 安全性较低</span><br><span class="line">- 有些状态不可能保存在客户端。</span><br><span class="line">- 每次访问都要传送cookie给服务器，浪费带宽。</span><br><span class="line">- cookie数据有路径（path）的概念，可以限制cookie只属于某个路径下。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>session：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- Session保存的东西越多，就越占用服务器内存，对于用户在线人数较多的网站，服务器的内存压力会比较大。</span><br><span class="line">- 依赖于cookie（sessionID保存在cookie），如果禁用cookie，则要使用URL重写，不安全</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="WebStorage"><a href="#WebStorage" class="headerlink" title="WebStorage"></a>WebStorage</h4><p>WebStorage的目的是克服由cookie所带来的一些限制，当数据需要被严格控制在客户端时，不需要持续的将数据发回服务器。</p>
+<p>WebStorage两个主要目标：</p>
+<ul>
+<li>提供一种在cookie之外存储会话数据的路径。</li>
+<li>提供一种存储大量可以跨会话存在的数据的机制。</li>
+</ul>
+<p>HTML5的WebStorage提供了两种API：localStorage（本地存储）和sessionStorage(会话存储）,以下从各个方面来比较区别</p>
+<h5 id="1、生命周期："><a href="#1、生命周期：" class="headerlink" title="1、生命周期："></a>1、生命周期：</h5><ul>
+<li><p>localStorage:<br>  localStorage的生命周期是永久的，关闭页面或浏览器之后localStorage中的数据也不会消失。localStorage除非主动删除数据，否则数据永远不会消失。</p>
+</li>
+<li><p>sessionStorage<br>  sessionStorage的生命周期是在仅在当前会话下有效。sessionStorage引入了一个“浏览器窗口”的概念，sessionStorage是在同源的窗口中始终存在的数据。只要这个浏览器窗口没有关闭，即使刷新页面或者进入同源另一个页面，数据依然存在。但是sessionStorage在关闭了浏览器窗口后就会被销毁。同时独立的打开同一个窗口同一个页面，sessionStorage也是不一样的。</p>
+</li>
+</ul>
+<h5 id="2、存储大小："><a href="#2、存储大小：" class="headerlink" title="2、存储大小："></a>2、存储大小：</h5><p>localStorage和sessionStorage的存储数据大小一般都是：5MB</p>
+<h5 id="3、存储位置："><a href="#3、存储位置：" class="headerlink" title="3、存储位置："></a>3、存储位置：</h5><p>localStorage和sessionStorage都保存在客户端，不与服务器进行交互通信。</p>
+<h5 id="4、存储内容类型："><a href="#4、存储内容类型：" class="headerlink" title="4、存储内容类型："></a>4、存储内容类型：</h5><p>localStorage和sessionStorage只能存储字符串类型</p>
+<h5 id="5、获取方式："><a href="#5、获取方式：" class="headerlink" title="5、获取方式："></a>5、获取方式：</h5><ul>
+<li>localStorage：window.localStorage</li>
+<li>sessionStorage：window.sessionStorage</li>
+</ul>
+<h5 id="6、应用场景："><a href="#6、应用场景：" class="headerlink" title="6、应用场景："></a>6、应用场景：</h5><ul>
+<li>localStoragese：常用于长期登录（+判断用户是否已登录），适合长期保存在本地的数据。-<br>sessionStorage：敏感账号一次性登录；</li>
+</ul>
+<h4 id="WebStorage的优点："><a href="#WebStorage的优点：" class="headerlink" title="WebStorage的优点："></a>WebStorage的优点：</h4><ul>
+<li><p>存储空间更大：cookie为4KB，而WebStorage是5MB；</p>
+</li>
+<li><p>节省网络流量：WebStorage不会传送到服务器，存储在本地的数据可以直接获取，也不会像cookie一样美词请求都会传送到服务器，所以减少了客户端和服务器端的交互，节省了网络流量；</p>
+</li>
+<li><p>对于那种只需要在用户浏览一组页面期间保存而关闭浏览器后就可以丢弃的数据，sessionStorage会非常方便；</p>
+</li>
+<li><p>快速显示：有的数据存储在WebStorage上，再加上浏览器本身的缓存。获取数据时可以从本地获取会比从服务器端获取快得多，所以速度更快；</p>
+</li>
+<li><p>安全性：WebStorage不会随着HTTP header发送到服务器端，所以安全性相对于cookie来说比较高一些，不会担心截获，但是仍然存在伪造问题；</p>
+</li>
+<li><p>WebStorage提供了一些方法，数据操作比cookie方便；</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">setItem (key, value) ——  保存数据，以键值对的方式储存信息。</span><br><span class="line">getItem (key) ——  获取数据，将键值传入，即可获取到对应的value值。</span><br><span class="line">removeItem (key) ——  删除单个数据，根据键值移除对应的信息。</span><br><span class="line">clear () ——  删除所有的数据</span><br><span class="line">key (index) —— 获取某个索引的key</span><br></pre></td></tr></table></figure>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-06-17T01:19:32.332Z" itemprop="dateUpdated">2018-06-17 01:19:32</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/frontend/20180617-4.html" target="_blank" rel="external">http://blog.inbelieve.top/frontend/20180617-4.html</a>
+        
+    </div>
+    <footer>
+        <a href="http://blog.inbelieve.top">
+            <img src="/img/avatar.jpg" alt="Martin Long">
+            Martin Long
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">HTML5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">JavaScript</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.inbelieve.top/frontend/20180617-4.html&title=《比较Cookie Session localStorage sessionStorage之区别》 — 追光者的部落&source=有些鸟儿天生是没办法被关在笼子里的,因为他的每一片羽毛都闪耀着自由的光辉" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+
+
+      
+    <div onclick="ShowGitment()" id="gitment-display-button" style="display: block;">
+        <span>显示 Gitment 评论</span>
+    </div>
+    <div id="gitment" class="hide"></div>
+
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="prev">
+      <a href="/server/20180617-5.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Nginx中巧用return来测试</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/server/20180617-3.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">mysql之慢查询</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#cookie和session都是用来跟踪浏览器用户身份的会话方式。区别："><span class="post-toc-number">1.</span> <span class="post-toc-text">cookie和session都是用来跟踪浏览器用户身份的会话方式。区别：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#WebStorage"><span class="post-toc-number">2.</span> <span class="post-toc-text">WebStorage</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#WebStorage的优点："><span class="post-toc-number">3.</span> <span class="post-toc-text">WebStorage的优点：</span></a></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+            请作者喝杯咖啡
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+</div>
+
+        <footer class="footer">
+    
+    <div class="bottom">
+        <p>
+            <span>
+                Martin Long &copy; 2017 - 2018
+            </span>
+        		
+           	
+            
+            
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">book</a>
+            </span>
+            
+            
+            
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.inbelieve.top/frontend/20180617-4.html&title=《比较Cookie Session localStorage sessionStorage之区别》 — 追光者的部落&source=有些鸟儿天生是没办法被关在笼子里的,因为他的每一片羽毛都闪耀着自由的光辉" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKElEQVR42u3aQXKEMAxEUe5/abLNIia/Jc9UIX+vUhUCPBaK2vJ14XX/WqvfkitX1/O/bS0ZMmS8lnE/LnINeTD5EOlzZciQcRqDl8Xnv+WleXV97bkyZMiQ0Xk8KabknjJkyJCRRs00oD63ev1CL0OGjBMYJMSmD0sL9JeyuAwZMl7I4Lvu3//5I/MNGTJkvIpxh+t5Q60TUztLhgwZsxm1xo63aOR1UUAlA1EZMmQMZfDoWCu1nyjQf1BlyJAxmsG3vcjL1RrBTrhd/t+QIUPGOAY/tsVbvVojuK19lCFDxmGMXRhS0NOiL0OGjBMY6ZZZ/FU2fV1UXmXIkDGUwWHkMES/cQwGliTEypAhYxCjfzt+jIzj0xGCDBkyZjN4s/i8oZ8OHdNN/+BTypAhYxyjdrs0rNba0OAdZMiQcQAjLXl8/MnbPhJ9UYiVIUPGIEY6gOSDyT41GFrIkCHjAAY/VHGVFi+m6TBAhgwZJzB4Btx1hItH3LTFlCFDxmzGqoTVjovxsluLx8s3lCFDxjEMXux4ZE3DLYnT/xRcGTJkDGWkpTZ9WPxaaeGWIUPGUMYdLj7y5OmZbL2hplCGDBlDGXs39/mQMt1cQ2dGZMiQMZpRO5LF82PtsBe/pwwZMs5hpIWvf2CiE2KDwYAMGTJkhAU0LdNBPytDhgwZIWlXixmUchkyZBzA4MOAzhbb3itlyJBxDiONjrUBZKcp7IwZZMiQ8XLGDyadiYfiBVKpAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.0.0"></script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.0.0"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.0.0"></script>
+
+<!-- third-party -->
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.0.0"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+    
+    
+        <script type="text/javascript" src="/js/plugins/gitmint.browser.js?v=1.0.0"></script>
+<script type="text/javascript" src="/js/plugins/gitment.js?v=1.0.0"></script>
+    
+
+
+
+
+
+
+
+    <script>
+    (function() {
+        var OriginTitile = document.title, titleTime;
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = 'leaving！';
+                clearTimeout(titleTime);
+            } else {
+                document.title = 'welcome!';
+                titleTime = setTimeout(function() {
+                    document.title = OriginTitile;
+                },2000);
+            }
+        });
+    })();
+</script>
+
+
+
+
+    
+</body>
+</html>
