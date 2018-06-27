@@ -386,10 +386,10 @@
     
         1. 安装
 centos(如果python版本过低，请升级到2.7)
-123sudo yum updatesudo yum install python-setuptools &amp;&amp; easy_install pipsudo pip install shadowsocks
+sudo yum updatesudo yum install python-setuptools &amp;&amp; easy_install pipsudo pip install shadowsocks
 
 debian/ubantu
-123sudo apt update sudo apt install py...
+sudo apt update sudo apt install python-g...
     
     <a href="/server/20180617-21.html" class="post-more waves-effect waves-button">
             阅读全文
@@ -452,7 +452,7 @@ debian/ubantu
     <div class="post-content" id="post-content" itemprop="postContent">
     
     
-        事件驱动作为javascript的一个重大特性，而事件驱动的实现原理正是订阅发布模式，本文为大家奉献简单的订阅发布模式。123456789101112131415161718192021222324252627282930313233var PubSub = &#123;    handlers: &#123;&#125;&#125;PubSub.on = function(eventTyp...
+        事件驱动作为javascript的一个重大特性，而事件驱动的实现原理正是订阅发布模式，本文为大家奉献简单的订阅发布模式。var PubSub = &#123;    handlers: &#123;&#125;&#125;PubSub.on = function(eventType, handler) &#123;    if(!(eventType in this.handlers)) &...
     
     <a href="/server/20180617-20.html" class="post-more waves-effect waves-button">
             阅读全文
@@ -580,7 +580,7 @@ debian/ubantu
     
     
         最近因为使用composer安装依赖，发现比较慢(因为墙的原因)，所以找了一下国内镜像地址配置下，这样可以加快下载速度，方法如下：
-在linux或window的命令行，输入下面命令1composer config -g repo.packagist composer https://packagist.phpcomposer.com
+在linux或window的命令行，输入下面命令composer config -g repo.packagist composer https://packagist.phpcomposer.com
 
     
     <a href="/server/20180617-18.html" class="post-more waves-effect waves-button">
@@ -646,7 +646,7 @@ debian/ubantu
     
         最近使用composer安装时发现提示php的版本不匹配。执行composer install遇到错误：Your requirements could not be resolved to an installable set of packages. 这是因为不匹配composer.json要求的版本。
 完整错误如下：
-[PHP]123456789101112vagrant@homeste...
+[PHP]vagrant@homestead:/usr/share/n...
     
     <a href="/server/20180617-17.html" class="post-more waves-effect waves-button">
             阅读全文
@@ -772,7 +772,7 @@ debian/ubantu
     <div class="post-content" id="post-content" itemprop="postContent">
     
     
-        js数组有很多操作方法，其中forEach,every,some,filter,map是常容易混淆用法的，下面我来解释其中的区别1234567891011121314151617181920212223242526272829303132333435363738var list = [&#123;	&quot;id&quot;: 1,	&quot;age&quot;: 19&#125;,&#...
+        js数组有很多操作方法，其中forEach,every,some,filter,map是常容易混淆用法的，下面我来解释其中的区别var list = [&#123;	&quot;id&quot;: 1,	&quot;age&quot;: 19&#125;,&#123;	&quot;id&quot;: 2,	&quot;age&quot;: 18&#125;]var result = list...
     
     <a href="/frontend/20180617-15.html" class="post-more waves-effect waves-button">
             阅读全文

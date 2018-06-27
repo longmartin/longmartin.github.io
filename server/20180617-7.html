@@ -228,9 +228,9 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             
             <p> Nginx的location块中的root用法，大家应该都知道，就是用来映射路径用的，而alias也是用来映射路径用的，n那么这2者有什么区别呢？</p>
-<h4 id="先看root的用法"><a href="#先看root的用法" class="headerlink" title="先看root的用法"></a>先看root的用法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location /request_path/image/ &#123;</span><br><span class="line">    root /local_path/image/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="先看root的用法"><a href="#先看root的用法" class="headerlink" title="先看root的用法"></a>先看root的用法</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">location /request_path/image/ &#123;</span><br><span class="line">    root /local_path/image/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>当客户端请求 /request_path/image/123.jpg的时候，<br>实际上是映射的/local_path/image/request_path/image/123.jpg;</p>
-<h4 id="alias的用法"><a href="#alias的用法" class="headerlink" title="alias的用法"></a>alias的用法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location /request_path/image/ &#123;</span><br><span class="line">    alias /local_path/image/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="alias的用法"><a href="#alias的用法" class="headerlink" title="alias的用法"></a>alias的用法</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">location /request_path/image/ &#123;</span><br><span class="line">    alias /local_path/image/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>当客户端请求 /request_path/image/123.png 的时候，<br>Nginx把请求映射为/local_path/image/123.png </p>
 <p>总结，root和alias都可以用来映射路径，root后面跟的时候之后的真实路径，alias则可以用来显示真实路径，也可以用来重写路径，一般我们在location / 里面使用root,而在location /other/ 里面使用alias。</p>
 <blockquote>

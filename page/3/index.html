@@ -375,7 +375,7 @@
     
     
         最近在箱子里收拾下东西，翻到了以前的一本笔记本，拿来看一下，发现是以前读过并抄下来的诗歌，其中几首是汪国真的诗歌，他的诗歌总是充满了阳光和青春，读他的诗总能体会到青春的味道。下面我把他们贴出来
-####《热爱生命》1234567891011121314151617181920212223我不去想是否能够成功既然选择了远方便只顾风雨兼程我不去想能否赢得爱情既然钟情于玫瑰就勇敢地吐露真诚我不去想...
+####《热爱生命》我不去想是否能够成功既然选择了远方便只顾风雨兼程我不去想能否赢得爱情既然钟情于玫瑰就勇敢地吐露真诚我不去想身后会不会袭来寒风冷雨既然目标是地平线留给世界的只能是背影我不去想未来是平...
     
     <a href="/life/20180617-0.html" class="post-more waves-effect waves-button">
             阅读全文
@@ -573,16 +573,16 @@ My loves...
     <div class="post-content" id="post-content" itemprop="postContent">
     
     
-        *安装nginx1yum instal  nginx
+        *安装nginxyum instal  nginx
 
 使用pip安装uwsgi
-1pip install uwsgi
+pip install uwsgi
 
 新建配置文件
-12mkdir /etc/uwsgivim /etc/uwsgi/uwsgi.ini
+mkdir /etc/uwsgivim /etc/uwsgi/uwsgi.ini
 
 配置uwsgi
-1234567891011121314[uwsgi]socket = 127.0.0.1:9090master = true         wsgi-f...
+[uwsgi]socket = 127.0.0.1:9090master = true         wsgi-file=/var/www/html/pytho...
     
     <a href="/server/20180616-6.html" class="post-more waves-effect waves-button">
             阅读全文
@@ -645,8 +645,8 @@ My loves...
     <div class="post-content" id="post-content" itemprop="postContent">
     
     
-        最近在安装docker时发现，启动docker服务时发现提示下面的出错信息1could not change group /var/run/docker.sock to docker: group docker not found
-后来查了一下原因，发现这是因为cgroup没有挂载的原因，只要把cgroup挂载好就OK了，挂载方法如下123vim /etc/fstab#在最后一行增加以下配置...
+        最近在安装docker时发现，启动docker服务时发现提示下面的出错信息could not change group /var/run/docker.sock to docker: group docker not found
+后来查了一下原因，发现这是因为cgroup没有挂载的原因，只要把cgroup挂载好就OK了，挂载方法如下vim /etc/fstab#在最后一行增加以下配置信息：n...
     
     <a href="/server/20180616-5.html" class="post-more waves-effect waves-button">
             阅读全文
@@ -711,7 +711,7 @@ My loves...
     
         
 attach:    将标准输入（stdin）与标准输出（stdout）连接到正在运行的容器
-1234567docker attach [OPTIONS] CONTAINER# 创建容器docker create -it --name centos-container centos /bin/bash# 若想使用刚刚创建的容器，则必须使用docker start 命令启动容器docker ...
+docker attach [OPTIONS] CONTAINER# 创建容器docker create -it --name centos-container centos /bin/bash# 若想使用刚刚创建的容器，则必须使用docker start 命令启动容器docker start c...
     
     <a href="/server/20180616-4.html" class="post-more waves-effect waves-button">
             阅读全文
@@ -776,8 +776,8 @@ attach:    将标准输入（stdin）与标准输出（stdout）连接到正在�
     
         安装完ruby和rubygems后发现gem下载包很慢，这是因为gem的仓库地址是国外的原因。
 我查了一下，发现国内有镜像https://gems.ruby-china.org/可以使用，现在我们来把它设置成国内镜像。
-查看gem是否安装12$ gem -v2.5.1
-更换源地址1234$ gem sources --add https://gems.ruby-china.org/ --re...
+查看gem是否安装$ gem -v2.5.1
+更换源地址$ gem sources --add https://gems.ruby-china.org/ --remove h...
     
     <a href="/server/20180616-3.html" class="post-more waves-effect waves-button">
             阅读全文

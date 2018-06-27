@@ -229,16 +229,16 @@
             
             <p>安装完ruby和rubygems后发现gem下载包很慢，这是因为gem的仓库地址是国外的原因。</p>
 <p>我查了一下，发现国内有镜像<a href="https://gems.ruby-china.org/可以使用，现在我们来把它设置成国内镜像。" target="_blank" rel="noopener">https://gems.ruby-china.org/可以使用，现在我们来把它设置成国内镜像。</a></p>
-<h5 id="查看gem是否安装"><a href="#查看gem是否安装" class="headerlink" title="查看gem是否安装"></a>查看gem是否安装</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gem -v</span><br><span class="line">2.5.1</span><br></pre></td></tr></table></figure>
-<h5 id="更换源地址"><a href="#更换源地址" class="headerlink" title="更换源地址"></a>更换源地址</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/</span><br><span class="line">$ gem sources -l</span><br><span class="line">*** CURRENT SOURCES ***</span><br><span class="line">https://gems.ruby-china.org/</span><br></pre></td></tr></table></figure>
+<h5 id="查看gem是否安装"><a href="#查看gem是否安装" class="headerlink" title="查看gem是否安装"></a>查看gem是否安装</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ gem -v</span><br><span class="line">2.5.1</span><br></pre></td></tr></table></figure>
+<h5 id="更换源地址"><a href="#更换源地址" class="headerlink" title="更换源地址"></a>更换源地址</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/</span><br><span class="line">$ gem sources -l</span><br><span class="line">*** CURRENT SOURCES ***</span><br><span class="line">https://gems.ruby-china.org/</span><br></pre></td></tr></table></figure>
 <h5 id="SSL-证书错误"><a href="#SSL-证书错误" class="headerlink" title="SSL 证书错误"></a>SSL 证书错误</h5><p>正常情况下，你是不会遇到 SSL 证书错误的，除非你的 Ruby 安装方式不正确。</p>
 <p>如果遇到 SSL 证书问题，你又无法解决，请修改 ~/.gemrc 文，增加 ssl_verify_mode: 0 配置，以便于 RubyGems 可以忽略 SSL 证书错误。</p>
 <ul>
 <li><p>linux</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">:sources:</span><br><span class="line">- https://gems.ruby-china.org</span><br><span class="line">:ssl_verify_mode: 0</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">:sources:</span><br><span class="line">- https://gems.ruby-china.org</span><br><span class="line">:ssl_verify_mode: 0</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>windows<br>下载 <a href="https://curl.haxx.se/ca/cacert.pem(这里我使用mingw64下载)" target="_blank" rel="noopener">https://curl.haxx.se/ca/cacert.pem(这里我使用mingw64下载)</a><br>把文件cacert.pem放到一个目录下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line">curl https://curl.haxx.se/ca/cacert.pem --silent -O</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd ~</span><br><span class="line">curl https://curl.haxx.se/ca/cacert.pem --silent -O</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>通过系统-&gt;高级系统设置-&gt;环境变量设置SSL_CERT_FILE,然后重新执行配置操作(关闭当前命令行在开)</p>

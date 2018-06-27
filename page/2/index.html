@@ -245,8 +245,8 @@
     
     
         简介pm2 是一个带有负载均衡功能的Node应用的进程管理器.当你要把你的独立代码利用全部的服务器上的所有CPU,并保证进程永远都活着,0秒的重载, PM2可以作为完美的守护进程。
-安装1npm install -g pm2
-pm2常用命令12345678910111213141516171819202122232425262728293031323334353637383940414243...
+安装npm install -g pm2
+pm2常用命令$ pm2 start app.js              # 启动app.js应用程序$ pm2 start app.js -i 4         ...
     
     <a href="/frontend/20180617-13.html" class="post-more waves-effect waves-button">
             阅读全文
@@ -309,7 +309,7 @@ pm2常用命令12345678910111213141516171819202122232425262728293031323334353637
     <div class="post-content" id="post-content" itemprop="postContent">
     
     
-        最近用node跑一个简单服务，需要不停地将请求的内容写日志，所以使用appendFile方法追加内容到文件里面12345678var fs = require(&apos;fs&apos;);    var data = &apos;hello world&apos;;  fs.appendFile(&apos;./log.txt&apos;,data,&apos;utf8&apos;,fu...
+        最近用node跑一个简单服务，需要不停地将请求的内容写日志，所以使用appendFile方法追加内容到文件里面var fs = require(&apos;fs&apos;);    var data = &apos;hello world&apos;;  fs.appendFile(&apos;./log.txt&apos;,data,&apos;utf8&apos;,function(e...
     
     <a href="/frontend/20180617-12.html" class="post-more waves-effect waves-button">
             阅读全文
@@ -440,7 +440,7 @@ pm2常用命令12345678910111213141516171819202122232425262728293031323334353637
         JavaScript中，为了保证代码健壮性，我们需要确认对象中不存在环，现在有2种方法检测js对象是否有环
 
 方法一
-123456789101112function cycleDetector (obj) &#123;	console.log(arguments)  // 请添加代码    let result = false;    try &#123;        JSON.strin...
+function cycleDetector (obj) &#123;	console.log(arguments)  // 请添加代码    let result = false;    try &#123;        JSON.stringify(obj);    &...
     
     <a href="/frontend/20180617-10.html" class="post-more waves-effect waves-button">
             阅读全文
@@ -503,7 +503,7 @@ pm2常用命令12345678910111213141516171819202122232425262728293031323334353637
     <div class="post-content" id="post-content" itemprop="postContent">
     
     
-        nginx设置允许跨域1234add_header &apos;Access-Control-Allow-Origin&apos; &apos;*&apos;; #设置允许跨域add_header &apos;Access-Control-Allow-Credentials&apos; &apos;true&apos;; #设置跨域是否需要认证(此处可不需要)add_header &apos...
+        nginx设置允许跨域add_header &apos;Access-Control-Allow-Origin&apos; &apos;*&apos;; #设置允许跨域add_header &apos;Access-Control-Allow-Credentials&apos; &apos;true&apos;; #设置跨域是否需要认证(此处可不需要)add_header &apos;Acc...
     
     <a href="/server/20180617-9.html" class="post-more waves-effect waves-button">
             阅读全文
@@ -570,8 +570,8 @@ pm2常用命令12345678910111213141516171819202122232425262728293031323334353637
 1. 准备三台机器192.168.2.151        web服务器192.168.2.152        web服务器192.168.2.150        负载均衡服务器
 2. 三台机器都配置,其中151,152作为web服务器，150作为负载均衡
 
-ubuntu/debian12sudo apt update -ysudo apt install nginx
-centos1s...
+ubuntu/debiansudo apt update -ysudo apt install nginx
+centossudo...
     
     <a href="/server/20180617-8.html" class="post-more waves-effect waves-button">
             阅读全文
@@ -635,8 +635,8 @@ centos1s...
     
     
          Nginx的location块中的root用法，大家应该都知道，就是用来映射路径用的，而alias也是用来映射路径用的，n那么这2者有什么区别呢？
-先看root的用法123location /request_path/image/ &#123;    root /local_path/image/;&#125;
-当客户端请求 /request_path/image/123.jpg的时候，实...
+先看root的用法location /request_path/image/ &#123;    root /local_path/image/;&#125;
+当客户端请求 /request_path/image/123.jpg的时候，实际上是...
     
     <a href="/server/20180617-7.html" class="post-more waves-effect waves-button">
             阅读全文
@@ -767,8 +767,8 @@ centos1s...
 
 返回状态码
 
-nginx 配置如下：123location = /test &#123;      return 403 ;&#125;
-通过返回的页面为： 403 Forbidden 正常的403错...
+nginx 配置如下：location = /test &#123;      return 403 ;&#125;
+通过返回的页面为： 403 Forbidden 正常的403错误返回...
     
     <a href="/server/20180617-5.html" class="post-more waves-effect waves-button">
             阅读全文

@@ -227,9 +227,9 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             
-            <p>最近在安装docker时发现，启动docker服务时发现提示下面的出错信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">could not change group /var/run/docker.sock to docker: group docker not found</span><br></pre></td></tr></table></figure></p>
-<p>后来查了一下原因，发现这是因为cgroup没有挂载的原因，只要把cgroup挂载好就OK了，挂载方法如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/fstab</span><br><span class="line">#在最后一行增加以下配置信息：</span><br><span class="line">none        /sys/fs/cgroup        cgroup        defaults    0    0</span><br></pre></td></tr></table></figure></p>
-<p>保存退出，在启动试一下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker</span><br><span class="line">ifconfig</span><br></pre></td></tr></table></figure></p>
+            <p>最近在安装docker时发现，启动docker服务时发现提示下面的出错信息<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">could not change group /var/run/docker.sock to docker: group docker not found</span><br></pre></td></tr></table></figure></p>
+<p>后来查了一下原因，发现这是因为cgroup没有挂载的原因，只要把cgroup挂载好就OK了，挂载方法如下<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim /etc/fstab</span><br><span class="line">#在最后一行增加以下配置信息：</span><br><span class="line">none        /sys/fs/cgroup        cgroup        defaults    0    0</span><br></pre></td></tr></table></figure></p>
+<p>保存退出，在启动试一下<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl start docker</span><br><span class="line">ifconfig</span><br></pre></td></tr></table></figure></p>
 <p>发现docker服务已经成功跑起来了</p>
 
         </div>

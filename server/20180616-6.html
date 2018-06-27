@@ -227,30 +227,30 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             
-            <p>*安装nginx<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum instal  nginx</span><br></pre></td></tr></table></figure></p>
+            <p>*安装nginx<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum instal  nginx</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li><p>使用pip安装uwsgi</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install uwsgi</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install uwsgi</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>新建配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /etc/uwsgi</span><br><span class="line">vim /etc/uwsgi/uwsgi.ini</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir /etc/uwsgi</span><br><span class="line">vim /etc/uwsgi/uwsgi.ini</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>配置uwsgi</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[uwsgi]</span><br><span class="line">socket = 127.0.0.1:9090</span><br><span class="line">master = true         </span><br><span class="line">wsgi-file=/var/www/html/python/test.py</span><br><span class="line">#vhost = true          </span><br><span class="line">no-site = true        </span><br><span class="line">workers = 2           </span><br><span class="line">reload-mercy = 10     </span><br><span class="line">vacuum = true        </span><br><span class="line">max-requests = 1000   </span><br><span class="line">limit-as = 512</span><br><span class="line">buffer-size = 30000</span><br><span class="line">pidfile = /var/run/uwsgi9090.pid    </span><br><span class="line">daemonize = /var/log/uwsgi9090.log</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[uwsgi]</span><br><span class="line">socket = 127.0.0.1:9090</span><br><span class="line">master = true         </span><br><span class="line">wsgi-file=/var/www/html/python/test.py</span><br><span class="line">#vhost = true          </span><br><span class="line">no-site = true        </span><br><span class="line">workers = 2           </span><br><span class="line">reload-mercy = 10     </span><br><span class="line">vacuum = true        </span><br><span class="line">max-requests = 1000   </span><br><span class="line">limit-as = 512</span><br><span class="line">buffer-size = 30000</span><br><span class="line">pidfile = /var/run/uwsgi9090.pid    </span><br><span class="line">daemonize = /var/log/uwsgi9090.log</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>配置test.py文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /var/www/html/python/</span><br><span class="line">vim test.py</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir /var/www/html/python/</span><br><span class="line">vim test.py</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>写文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def application(env, start_response):</span><br><span class="line">    start_response(&apos;200 OK&apos;, [(&apos;Content-Type&apos;,&apos;text/html&apos;)])</span><br><span class="line">    return &quot;Hello World&quot;</span><br></pre></td></tr></table></figure></p>
+<p>写文件<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def application(env, start_response):</span><br><span class="line">    start_response(&apos;200 OK&apos;, [(&apos;Content-Type&apos;,&apos;text/html&apos;)])</span><br><span class="line">    return &quot;Hello World&quot;</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li>配置nginx<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/nginx/conf.d/python.conf</span><br></pre></td></tr></table></figure>
+<li>配置nginx<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim /etc/nginx/conf.d/python.conf</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>插入下面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       8090;</span><br><span class="line">    server_name 127.0.0.1;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">	include  uwsgi_params;</span><br><span class="line">        uwsgi_pass  127.0.0.1:9090;        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>插入下面<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       8090;</span><br><span class="line">    server_name 127.0.0.1;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">	include  uwsgi_params;</span><br><span class="line">        uwsgi_pass  127.0.0.1:9090;        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li><p>启动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start nginx</span><br><span class="line">uwsgi /etc/uwsgi/uwsgi.ini</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl start nginx</span><br><span class="line">uwsgi /etc/uwsgi/uwsgi.ini</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>访问,在浏览器上输入10.104.15.150:9090（此时ip换成你的linux机器ip）</p>
 <figure class="image-box">

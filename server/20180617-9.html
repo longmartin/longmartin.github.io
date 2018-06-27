@@ -227,7 +227,7 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             
-            <p>nginx设置允许跨域<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">add_header &apos;Access-Control-Allow-Origin&apos; &apos;*&apos;; #设置允许跨域</span><br><span class="line">add_header &apos;Access-Control-Allow-Credentials&apos; &apos;true&apos;; #设置跨域是否需要认证(此处可不需要)</span><br><span class="line">add_header &apos;Access-Control-Allow-Methods&apos; &apos;GET, POST, OPTIONS&apos;; #设置允许通过跨域方法</span><br><span class="line">add_header &apos;Access-Control-Allow-Headers&apos; &apos;X-Requested-With&apos;; #设置允许跨域的header</span><br></pre></td></tr></table></figure></p>
+            <p>nginx设置允许跨域<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">add_header &apos;Access-Control-Allow-Origin&apos; &apos;*&apos;; #设置允许跨域</span><br><span class="line">add_header &apos;Access-Control-Allow-Credentials&apos; &apos;true&apos;; #设置跨域是否需要认证(此处可不需要)</span><br><span class="line">add_header &apos;Access-Control-Allow-Methods&apos; &apos;GET, POST, OPTIONS&apos;; #设置允许通过跨域方法</span><br><span class="line">add_header &apos;Access-Control-Allow-Headers&apos; &apos;X-Requested-With&apos;; #设置允许跨域的header</span><br></pre></td></tr></table></figure></p>
 <p>这一段可以放在http、server、location里面分别代表不同程度的跨域，其中Access-Control-Allow-Headers，Access-Control-Allow-Credentials可以不设置</p>
 
         </div>
