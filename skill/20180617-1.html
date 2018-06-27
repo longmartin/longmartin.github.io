@@ -11,15 +11,13 @@
     <link rel="shortcut icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="/css/style.css?v=1.0.0">
     
-        <link rel="stylesheet" href="/css/third-party/gitment.css?v=1.0.0">
-    
     <script type="text/javascript">
         // Data Center
         var DC = {
             reward:	true,
             lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
-            v: JSON.parse('{"enable":false,"appid":null,"appkey":null,"notify":false,"verify":false,"placeholder":"suggest","avatar":"wavatar"}'),
-            g: JSON.parse('{"enable":true,"lazy":true,"owner":"longmartin","repo":"gitments","oauth":{"client_id":"f39a2a4a21ec450c4efe","client_secret":"010e883ee20561f202de087fc6e488d0734d94fb"},"perPage":10}'),
+            v: JSON.parse('{"enable":true,"appid":null,"appkey":null,"notify":false,"verify":false,"placeholder":"suggest","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":"longmartin","repo":"gitments","oauth":{"client_id":"f39a2a4a21ec450c4efe","client_secret":"010e883ee20561f202de087fc6e488d0734d94fb"},"perPage":10}'),
             d: JSON.parse('{"app_id":null}')
         };
     </script>
@@ -216,17 +214,14 @@
             
 
             
-
-
-<span class="post-comments-counter" id="/skill/20180617-1.html">
-    <span class="post-meta-item-icon">
+    <span class="leancloud-comment">
         <i class="icon icon-comment-o"></i>
+        <a href="/skill/20180617-1.html#comment">
+            <span class="valine-comment-count" data-xid="/skill/20180617-1.html"></span>
+        </a>
     </span>
-    
-    <a href="/skill/20180617-1.html#gitment-display-button" onclick="ShowGitment()">
-        <span class="post-comments-count gitment-comments-count" itemprop="commentsCount"></span>
-    </a>
-</span>
+
+
 
             
         </div>
@@ -325,13 +320,7 @@
         </div>
         
             
-
-
-      
-    <div onclick="ShowGitment()" id="gitment-display-button" style="display: block;">
-        <span>显示 Gitment 评论</span>
-    </div>
-    <div id="gitment" class="hide"></div>
+    <div id="comment"></div>
 
 
 
@@ -480,9 +469,10 @@
 
 
     
+        <script type="text/javascript" src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script type="text/javascript" src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script type="text/javascript" src="/js/plugins/valine.js?v=1.0.0"></script>
     
-        <script type="text/javascript" src="/js/plugins/gitmint.browser.js?v=1.0.0"></script>
-<script type="text/javascript" src="/js/plugins/gitment.js?v=1.0.0"></script>
     
 
 
